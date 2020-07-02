@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 import Header from './components/layout/Header';
 import Newsletter from './components/layout/Newsletter';
@@ -8,9 +9,11 @@ import './assets/scss/style.scss';
 const App: React.FC = () => {
   return (
     <div>
-      <Header />
-      <Newsletter />
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <Newsletter />
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 };
