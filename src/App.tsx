@@ -6,8 +6,9 @@ import Newsletter from './components/layout/Newsletter';
 import Footer from './components/layout/Footer';
 import Hero from './components/hero/Hero';
 import Products from './components/products/Products';
-import LoginForm from './components/login/LoginPage';
+import LoginForm from './pages/auth/LoginPage';
 import './assets/scss/style.scss';
+import ForgotPassword from './pages/auth/ForgotPasswordPage';
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,11 @@ const App: React.FC = () => {
         {/* Login */}
         <Route path="/login" exact>
           <LoginForm />
+        </Route>
+
+        {/* Forgot password */}
+        <Route path="/forgot-password" exact>
+          <ForgotPassword />
         </Route>
 
         <Footer />

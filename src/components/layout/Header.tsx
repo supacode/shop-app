@@ -1,17 +1,19 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 const Header: React.FC = () => (
   <header className="main-header">
     <div className="row">
       <div className="main-header__logo">
         <h1>
-          <a href="/">Logo</a>
+          <Link to="/">Logo</Link>
         </h1>
       </div>
       <nav className="main-header__nav">
         <ul>
           <li>
-            <a href="/login.html">
+            <Link to="/login">
               <svg width="33px" height="33px" viewBox="0 0 512 512">
                 <title>My Account</title>
                 <path
@@ -32,7 +34,7 @@ const Header: React.FC = () => (
                   }}
                 />
               </svg>
-            </a>
+            </Link>
           </li>
           <li>
             <a href="cart.html" className="main-header__nav--cart-icon">
