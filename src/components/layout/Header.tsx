@@ -37,7 +37,7 @@ const Header: React.FC = () => (
             </Link>
           </li>
           <li>
-            <a href="cart.html" className="main-header__nav--cart-icon">
+            <Link to="/cart" className="main-header__nav--cart-icon">
               <span className="badge">5</span>
               <svg width="33px" height="33px" viewBox="0 0 512 512">
                 <title>Cart</title>
@@ -82,7 +82,7 @@ const Header: React.FC = () => (
                   }}
                 />
               </svg>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

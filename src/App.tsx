@@ -7,8 +7,9 @@ import Footer from './components/layout/Footer';
 import Hero from './components/hero/Hero';
 import Products from './components/products/Products';
 import LoginForm from './pages/auth/LoginPage';
-import './assets/scss/style.scss';
 import ForgotPassword from './pages/auth/ForgotPasswordPage';
+import CartPage from './pages/cartpage/CartPage';
+import './assets/scss/style.scss';
 
 const App: React.FC = () => {
   return (
@@ -31,6 +32,11 @@ const App: React.FC = () => {
         {/* Forgot password */}
         <Route path="/forgot-password" exact>
           <ForgotPassword />
+        </Route>
+
+        {/* Cart Page */}
+        <Route path="/cart" exact>
+          <CartPage />
         </Route>
 
         <Footer />
