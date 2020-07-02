@@ -1,0 +1,17 @@
+.banner {
+  padding: 5rem 0;
+  background: {
+    // image: url('/images/slide/slide-04.jpg');
+    attachment: fixed;
+    size: cover;
+    repeat: no-repeat;
+    position: center center;
+  }
+  text-align: center;
+  display: grid;
+  place-items: center;
+
+  &__heading {
+    font-size: 2.5rem;
+  }
+}
