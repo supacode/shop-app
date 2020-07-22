@@ -26,7 +26,7 @@
   }
 
   &__content {
-    width: 45%;
+    width: 50%;
     &--title {
       font-size: 150%;
       line-height: 2;
@@ -48,15 +48,11 @@
       font-size: 2rem;
       color: $accent;
     }
-    &--old {
-      text-decoration: line-through;
-    }
   }
 
   &__preview {
-    border-right: 1px dashed darken($light-dark, 20);
     padding-right: 2rem;
-    width: 50%;
+    width: 48%;
     display: flex;
     &--image {
       flex: 1.5;

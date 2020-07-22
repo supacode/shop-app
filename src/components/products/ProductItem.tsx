@@ -1,19 +1,23 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 const ProductItem = () => {
   return (
     <div className="product">
       <figure>
-        <img src="images/products/product_1.png" alt="Product" />
-        <a href="product.html">
-          <a href="product.html">
-            <figcaption>Lorem, ipsum dolor.</figcaption>
-          </a>
-        </a>
+        {/* <img src={productImage1} alt="Product" /> */}
+        <img
+          src={require('../../assets/img/products/product_1.png')}
+          alt="Product"
+        />
+
+        <Link to="/products/123">
+          <figcaption>Lorem, ipsum dolor.</figcaption>
+        </Link>
       </figure>
       <p className="product__price">
         <span className="product__price--normal">$230</span>
-        <span className="product__price--was">$350</span>
       </p>
       <button className="product__add-cart">
         <svg width="32px" height="32px" viewBox="0 0 512 512">

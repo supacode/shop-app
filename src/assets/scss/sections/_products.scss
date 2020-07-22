@@ -45,12 +45,8 @@
     margin: 1rem 0;
     font-weight: bold;
     color: $accent;
+    align-items: center;
     font-size: 120%;
-    &--was {
-      font-size: 80%;
-      color: $dark;
-      text-decoration: line-through;
-    }
   }
 
   figure {

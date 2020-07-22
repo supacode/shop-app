@@ -8,7 +8,8 @@ import Hero from './components/hero/Hero';
 import Products from './components/products/Products';
 import LoginForm from './pages/auth/LoginPage';
 import ForgotPassword from './pages/auth/ForgotPasswordPage';
-import CartPage from './pages/cartpage/CartPage';
+import CartPage from './components/cartpage/CartPage';
+import ProductPage from './components/products/ProductPage';
 
 import './assets/scss/style.scss';
 
@@ -40,6 +41,10 @@ const App: React.FC = () => {
           <CartPage />
         </Route>
 
+        {/* Product Page */}
+        <Route path="/products/:productId" exact>
+          <ProductPage />
+        </Route>
         <Footer />
       </BrowserRouter>
     </div>
