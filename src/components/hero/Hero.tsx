@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => (
   <div className="hero">
@@ -10,9 +11,9 @@ const Hero: React.FC = () => (
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur,
             veritatis fugit pariatur voluptatem vero incidunt aspernatur.
           </p>
-          <a href="shop.html" className="hero__item--btn">
+          <Link to="/shop" className="hero__item--btn">
             Go to Store
-          </a>
+          </Link>
         </div>
       </div>
     </div>

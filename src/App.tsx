@@ -10,7 +10,8 @@ import RegisterPage from './components/auth/RegisterPage';
 import LoginForm from './components/auth/LoginPage';
 import ForgotPassword from './components/auth/ForgotPasswordPage';
 import CartPage from './components/cartpage/CartPage';
-import ProductPage from './components/products/ProductPage';
+import ProductPage from './components/products/ProductDetailPage';
+import ShoPage from './components/shop/ShopPage';
 
 import './assets/scss/style.scss';
 
@@ -32,6 +33,7 @@ const App: React.FC = () => {
           <Route path="/register" exact>
             <RegisterPage />
           </Route>
+
           {/* Login */}
           <Route path="/login" exact>
             <LoginForm />
@@ -51,9 +53,14 @@ const App: React.FC = () => {
           <Route path="/products/:productId" exact>
             <ProductPage />
           </Route>
-          <Footer />
+
+          {/* Shop Page */}
+          <Route path="/shop" exact>
+            <ShoPage />
+          </Route>
         </Switch>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 };

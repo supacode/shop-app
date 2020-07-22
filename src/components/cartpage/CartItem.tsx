@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CartItem: React.FC = () => {
   return (
@@ -8,10 +9,10 @@ const CartItem: React.FC = () => {
           src={require('../../assets/img/products/product_3.png')}
           alt="Product"
         />
-        <a href="/product.html" className="cart-item__product--link">
+        <Link to="/products/123" className="cart-item__product--link">
           <h3>Lorem, ipsum dolor.</h3>
           <p>#2321356</p>
-        </a>
+        </Link>
       </div>
       <div className="cart-item__quantity">
         <button type="button" className="cart-item__quantity--reduce">
