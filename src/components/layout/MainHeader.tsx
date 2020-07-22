@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-const Header: React.FC = () => (
+const MainHeader: React.FC = () => (
   <header className="main-header">
     <div className="row">
       <div className="main-header__logo">
@@ -38,7 +38,7 @@ const Header: React.FC = () => (
           </li>
           <li>
             <Link to="/cart" className="main-header__nav--cart-icon">
-              <span className="badge">5</span>
+              <span className="main-header__nav--cart-count">5</span>
               <svg width="33px" height="33px" viewBox="0 0 512 512">
                 <title>Cart</title>
                 <circle
@@ -90,4 +90,4 @@ const Header: React.FC = () => (
   </header>
 );
 
-export default Header;
+export default MainHeader;

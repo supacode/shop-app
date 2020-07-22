@@ -1,6 +1,12 @@
 .hero {
   width: 100%;
   position: relative;
+  padding: 5rem 0;
+  background: {
+    image: url('../../img/slide/slide-05.jpg');
+    size: cover;
+    position: cover;
+  }
 
   &__item {
     color: $dark;

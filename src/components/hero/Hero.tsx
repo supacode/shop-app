@@ -3,11 +3,6 @@ import React from 'react';
 const Hero: React.FC = () => (
   <div className="hero">
     <div className="hero__item">
-      {/* <img
-        src="images/slide/slide-05.jpg"
-        alt="Hero"
-        className="hero__item--image"
-      /> */}
       <div className="row">
         <div className="hero__item--content">
           <h2 className="hero__item--title">Up to 30% Off On New Arrivals</h2>

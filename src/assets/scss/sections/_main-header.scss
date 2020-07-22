@@ -1,73 +1,72 @@
-
 .main-header {
-    background: $light;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    padding: 1rem 0;
+  background: $light;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  padding: 1rem 0 0.5rem 0;
 
-    .row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__nav,
+  &__logo {
+    flex: 1;
+  }
+
+  &__logo {
+    font-size: 2rem;
+    color: $accent;
+  }
+
+  &__nav {
+    text-align: right;
+
+    li {
+      display: inline-block;
+      margin: 0 1rem;
     }
 
-    &__nav,
-    &__logo {
-        flex: 1;
+    &--cart-icon {
+      padding-right: 0.3rem;
     }
 
-    &__logo {
-        font-size: 2rem;
-        color: $accent;
+    &--cart-count {
+      background: $accent;
+      font-size: 90%;
+      color: $light;
+      border-radius: 0.5rem;
+      position: absolute;
+      right: -5px;
+      top: 0;
+      padding: 5px 10px;
     }
 
-    &__nav {
-        text-align: right;
+    li a {
+      color: $dark;
+      display: inline-block;
+      position: relative;
+      padding-top: 1rem;
+      margin-bottom: 1rem;
 
-        li {
-            display: inline-block;
-            margin: 0 1rem;
+      svg {
+        path,
+        circle,
+        polyline {
+          transition: 0.4s ease-out;
+          stroke: $dark;
         }
+      }
 
-        &--cart-icon {
-            padding-right: 0.3rem;
+      &:hover {
+        svg {
+          path,
+          circle,
+          polyline {
+            stroke: $accent;
+          }
         }
-
-        li a {
-            color: $dark;
-            display: inline-block;
-            position: relative;
-            padding-top: 1rem;
-            margin-bottom: 1rem;
-
-            svg {
-                path,
-                circle,
-                polyline {
-                    transition: 0.4s ease-out;
-                    stroke: $dark;
-                }
-            }
-
-            &:hover {
-                svg {
-                    path,
-                    circle,
-                    polyline {
-                        stroke: $accent;
-                    }
-                }
-            }
-
-            .badge {
-                background: $accent;
-                font-size: 90%;
-                color: $light;
-                border-radius: 50%;
-                position: absolute;
-                right: -5px;
-                top: 0;
-                padding: 5px 10px;
-            }
-        }
+      }
     }
+  }
 }
