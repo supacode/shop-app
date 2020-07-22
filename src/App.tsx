@@ -1,13 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import MainHeader from './components/layout/MainHeader';
 import Newsletter from './components/layout/Newsletter';
 import Footer from './components/layout/Footer';
 import Hero from './components/hero/Hero';
 import Products from './components/products/Products';
-import LoginForm from './pages/auth/LoginPage';
-import ForgotPassword from './pages/auth/ForgotPasswordPage';
+import RegisterPage from './components/auth/RegisterPage';
+import LoginForm from './components/auth/LoginPage';
+import ForgotPassword from './components/auth/ForgotPasswordPage';
 import CartPage from './components/cartpage/CartPage';
 import ProductPage from './components/products/ProductPage';
 
@@ -19,33 +20,39 @@ const App: React.FC = () => {
       <BrowserRouter>
         <MainHeader />
 
-        {/* Landing page */}
-        <Route path="/" exact>
-          <Hero />
-          <Products />
-          <Newsletter />
-        </Route>
+        <Switch>
+          {/* Landing page */}
+          <Route path="/" exact>
+            <Hero />
+            <Products />
+            <Newsletter />
+          </Route>
 
-        {/* Login */}
-        <Route path="/login" exact>
-          <LoginForm />
-        </Route>
+          {/* Create an account */}
+          <Route path="/register" exact>
+            <RegisterPage />
+          </Route>
+          {/* Login */}
+          <Route path="/login" exact>
+            <LoginForm />
+          </Route>
 
-        {/* Forgot password */}
-        <Route path="/forgot-password" exact>
-          <ForgotPassword />
-        </Route>
+          {/* Forgot password */}
+          <Route path="/forgot-password" exact>
+            <ForgotPassword />
+          </Route>
 
-        {/* Cart Page */}
-        <Route path="/cart" exact>
-          <CartPage />
-        </Route>
+          {/* Cart Page */}
+          <Route path="/cart" exact>
+            <CartPage />
+          </Route>
 
-        {/* Product Page */}
-        <Route path="/products/:productId" exact>
-          <ProductPage />
-        </Route>
-        <Footer />
+          {/* Product Page */}
+          <Route path="/products/:productId" exact>
+            <ProductPage />
+          </Route>
+          <Footer />
+        </Switch>
       </BrowserRouter>
     </div>
   );

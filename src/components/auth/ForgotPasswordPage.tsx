@@ -33,7 +33,7 @@ const ForgotPassword = () => {
 
           <div className="auth-form__footer">
             <p>
-              <a href="/signup.html">Create an Account</a>
+              <Link to="/register">Create an Account</Link>
             </p>
             <p>
               <Link to="/login">Login into your account</Link>

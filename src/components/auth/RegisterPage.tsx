@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const LoginForm = () => {
+const RegisterPage = () => {
   return (
     <div className="auth">
       <div className="row">
         <div className="auth-form__wrap">
-          <h2 className="auth-form__wrap--title">Login into your account</h2>
+          <h2 className="auth-form__wrap--title">Create an Account</h2>
           <form className="auth-form" method="POST" action="#">
             <div className="auth-form__field">
               <label htmlFor="email" className="auth-form__label">
@@ -35,19 +35,30 @@ const LoginForm = () => {
                 required
               />
             </div>
+            <div className="auth-form__field">
+              <label htmlFor="password2" className="auth-form__label">
+                Password
+              </label>
+              <input
+                type="password"
+                placeholder="•••••••"
+                className="auth-form__input"
+                name="password2"
+                id="password"
+                required
+              />
+            </div>
 
             <div className="auth-form__field">
-              <input
-                type="submit"
-                className="auth-form__submit"
-                value="Login"
-              />
+              <button type="submit" className="auth-form__submit">
+                <span>Create an Account</span>
+              </button>
             </div>
           </form>
 
           <div className="auth-form__footer">
             <p>
-              <a href="/signup.html">Create an Account</a>
+              <Link to="/login">Login your account</Link>
             </p>
             <p>
               <Link to="/forgot-password">Forgot Password</Link>
@@ -59,4 +70,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterPage;
