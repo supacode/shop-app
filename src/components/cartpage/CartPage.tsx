@@ -1,7 +1,7 @@
 import React from 'react';
 
-import CartItem from './CartItem.component';
-import CartFooter from './CartFooter.component';
+import CartItem from './CartItem';
+import CartFooter from './CartFooter';
 
 const CartPage: React.FC = () => {
   return (
