@@ -5,7 +5,7 @@ import cartReducer from './cartReducer';
 import CartContext from './cartContext';
 
 const initialState: IState = {
-  products: [{ id: 'p12' }],
+  products: [{ id: 'p12', count: 1 }],
 };
 
 const CartState: React.FC = ({ children }) => {

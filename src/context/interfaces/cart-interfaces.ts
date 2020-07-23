@@ -1,5 +1,6 @@
 export interface ICartProduct {
   id: string;
+  count: number;
 }
 
 export interface ICart {
