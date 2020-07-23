@@ -7,7 +7,7 @@ import CartContext from './cartContext';
 import { ADD_TO_CART } from '../types';
 
 const initialState: IState = {
-  products: [{ id: 'p12', count: 1 }],
+  products: [{ id: 'p1', count: 1 }],
 };
 
 const CartState: React.FC = ({ children }) => {
