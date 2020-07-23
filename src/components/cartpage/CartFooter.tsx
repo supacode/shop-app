@@ -5,7 +5,7 @@ const CartFooter: React.FC = () => {
   return (
     <div className="cart__footer">
       <p className="cart__footer--to-home">
-        <Link to="/">
+        <Link to="/shop">
           <svg width="32" height="32" viewBox="0 0 512 512">
             <polyline
               points="249.38 336 170 256 249.38 176"

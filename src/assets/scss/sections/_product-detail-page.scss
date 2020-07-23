@@ -28,8 +28,8 @@
   &__content {
     width: 50%;
     &--title {
-      font-size: 150%;
-      line-height: 2;
+      font-size: 200%;
+      font-weight: 550;
       color: $accent;
     }
 
@@ -41,13 +41,10 @@
 
   &__price {
     line-height: 3;
-    display: flex;
     align-items: center;
-    &--normal {
-      margin-right: 1rem;
-      font-size: 2rem;
-      color: $accent;
-    }
+    margin-right: 1rem;
+    font-size: 2rem;
+    color: $accent;
   }
 
   &__preview {
@@ -56,13 +53,18 @@
     display: flex;
     &--image {
       flex: 1.5;
+      overflow: hidden;
       margin-left: 1rem;
+      img {
+        border-radius: 0.5rem;
+      }
     }
     &--thumbnails {
       img {
         max-height: 150px;
         cursor: pointer;
         margin-bottom: 1rem;
+        border-radius: 0.5rem;
       }
       flex: 0.4;
       display: flex;

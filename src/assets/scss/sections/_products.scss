@@ -23,18 +23,15 @@
 .product {
   width: 25%;
   text-align: center;
-  border: 2px solid transparent;
+  margin: 1rem 0;
   transition: 0.4s ease-out border;
   border-radius: 10px;
   overflow: hidden;
 
   &:hover,
   &:focus {
-    box-shadow: 0 25px 29px rgba(63, 78, 100, 0.15);
-    border: {
-      style: solid;
-      color: rgba(235, 235, 235, 1);
-    }
+    box-shadow: 0 0.5rem 1rem rgba(63, 78, 100, 0.15);
+
     .product__add-cart {
       opacity: 1;
       pointer-events: all;

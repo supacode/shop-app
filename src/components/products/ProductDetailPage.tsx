@@ -35,9 +35,7 @@ const ProductPage: React.FC = () => {
           <h1 className="product-detail__content--title">
             Lorem, ipsum dolor.
           </h1>
-          <p className="product-detail__price">
-            <span className="product-detail__price--normal">$250.00</span>
-          </p>
+          <p className="product-detail__price">$250.00</p>
           <p className="product-detail__content--description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Est facilis
             vitae at velit cumque sequi, deleniti vero aliquid molestiae,
