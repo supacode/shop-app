@@ -10,8 +10,8 @@ const ProductsHomePage = () => {
   return (
     <div className="products">
       <div className="row">
-        {productsHome.map(product => (
-          <ProductItem product={product} />
+        {productsHome.map((product) => (
+          <ProductItem product={product} key={product.id} />
         ))}
       </div>
     </div>

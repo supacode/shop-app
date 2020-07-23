@@ -2,27 +2,30 @@ import React, { useReducer } from 'react';
 
 import productReducer from './productReducer';
 import ProductContext from './product-context';
-import { IState } from './interfaces';
+import { IState } from '../product-interfaces';
 
 const initialState: IState = {
   productsHome: [
     {
+      id: 'p1',
       name: 'Product 1',
       price: 21.5,
-      coverImage: 'product_1.png'
+      coverImage: 'product_1.png',
     },
     {
+      id: 'p2',
       name: 'Product 2',
       price: 14,
-      coverImage: 'product_2.png'
+      coverImage: 'product_2.png',
     },
     {
+      id: 'p3',
       name: 'Product 3',
       price: 20,
-      coverImage: 'product_3.png'
-    }
+      coverImage: 'product_3.png',
+    },
   ],
-  productsShop: []
+  productsShop: [],
 };
 
 const ProductState: React.FC = ({ children }) => {
@@ -33,7 +36,7 @@ const ProductState: React.FC = ({ children }) => {
     <ProductContext.Provider
       value={{
         productsHome: state.productsHome,
-        productsShop: state.productsShop
+        productsShop: state.productsShop,
       }}
     >
       {children}

@@ -1,10 +1,10 @@
 import { createContext } from 'react';
 
-import { IState } from './interfaces';
+import { IState } from '../product-interfaces';
 
 const initialState: IState = {
   productsHome: [],
-  productsShop: []
+  productsShop: [],
 };
 
 const ProductContext = createContext<IState>(initialState);

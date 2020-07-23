@@ -1,5 +1,6 @@
 // Product Interface
 export interface IProduct {
+  id: string | number;
   name: string;
   price: number;
   coverImage: string;

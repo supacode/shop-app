@@ -20,8 +20,8 @@ import ProductState from './context/product/ProductState';
 const App: React.FC = () => {
   return (
     <div>
-      <ProductState>
-        <BrowserRouter>
+      <BrowserRouter>
+        <ProductState>
           <MainHeader />
           <Switch>
             {/* Landing page */}
@@ -63,8 +63,8 @@ const App: React.FC = () => {
           </Switch>
 
           <Footer />
-        </BrowserRouter>
-      </ProductState>
+        </ProductState>
+      </BrowserRouter>
     </div>
   );
 };

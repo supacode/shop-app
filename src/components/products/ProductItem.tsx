@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { IProduct } from '../../context/product/interfaces';
+import { IProduct } from '../../context/product-interfaces';
 
 const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
   return (
@@ -30,7 +30,7 @@ const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
               fill: 'none',
               strokeLinecap: 'round',
               strokeLinejoin: 'round',
-              strokeWidth: '32px'
+              strokeWidth: '32px',
             }}
           />
           <circle
@@ -41,7 +41,7 @@ const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
               fill: 'none',
               strokeLinecap: 'round',
               strokeLinejoin: 'round',
-              strokeWidth: '32px'
+              strokeWidth: '32px',
             }}
           />
           <polyline
@@ -50,7 +50,7 @@ const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
               fill: 'none',
               strokeLinecap: 'round',
               strokeLinejoin: 'round',
-              strokeWidth: '32px'
+              strokeWidth: '32px',
             }}
           />
           <path
@@ -59,7 +59,7 @@ const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
               fill: 'none',
               strokeLinecap: 'round',
               strokeLinejoin: 'round',
-              strokeWidth: '32px'
+              strokeWidth: '32px',
             }}
           />
         </svg>
