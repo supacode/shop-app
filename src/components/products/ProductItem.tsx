@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Link } from 'react-router-dom';
+
+import CartContext from '../../context/cart/cartContext';
 
 import { IProduct } from '../../context/interfaces/product-interfaces';
 
 const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
+  const { addCartProduct } = useContext(CartContext);
+
   return (
     <div className="product">
       <figure>
@@ -20,7 +24,11 @@ const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
       <p className="product__price">
         <span className="product__price--normal">${product.price}</span>
       </p>
-      <button className="product__add-cart">
+
+      <button
+        className="product__add-cart"
+        onClick={() => addCartProduct && addCartProduct(product.id)}
+      >
         <svg width="32px" height="32px" viewBox="0 0 512 512">
           <circle
             cx="176"

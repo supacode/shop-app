@@ -5,7 +5,7 @@ export interface ICartProduct {
 
 export interface ICart {
   products: ICartProduct[];
-  addProduct(): void;
+  addCartProduct(): void;
   removeProduct(): void;
   clearCart(): void;
 }
@@ -17,4 +17,5 @@ export interface IAction {
 
 export interface IState {
   products: ICartProduct[];
+  addCartProduct?: (productId: string | number) => void;
 }
