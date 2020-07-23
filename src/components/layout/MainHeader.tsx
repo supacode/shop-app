@@ -22,7 +22,7 @@ const MainHeader: React.FC = () => (
                     fill: 'none',
                     strokeLinecap: 'round',
                     strokeLinejoin: 'round',
-                    strokeWidth: '32px'
+                    strokeWidth: '32px',
                   }}
                 />
                 <path
@@ -30,7 +30,7 @@ const MainHeader: React.FC = () => (
                   style={{
                     fill: 'none',
                     strokeMiterlimit: 10,
-                    strokeWidth: '32px'
+                    strokeWidth: '32px',
                   }}
                 />
               </svg>
@@ -49,7 +49,7 @@ const MainHeader: React.FC = () => (
                     fill: 'none',
                     strokeLinecap: 'round',
                     strokeLinejoin: 'round',
-                    strokeWidth: '32px'
+                    strokeWidth: '32px',
                   }}
                 />
                 <circle
@@ -60,7 +60,7 @@ const MainHeader: React.FC = () => (
                     fill: 'none',
                     strokeLinecap: 'round',
                     strokeLinejoin: 'round',
-                    strokeWidth: '32px'
+                    strokeWidth: '32px',
                   }}
                 />
                 <polyline
@@ -69,7 +69,7 @@ const MainHeader: React.FC = () => (
                     fill: 'none',
                     strokeLinecap: 'round',
                     strokeLinejoin: 'round',
-                    strokeWidth: '32px'
+                    strokeWidth: '32px',
                   }}
                 />
                 <path
@@ -78,7 +78,7 @@ const MainHeader: React.FC = () => (
                     fill: 'none',
                     strokeLinecap: 'round',
                     strokeLinejoin: 'round',
-                    strokeWidth: '32px'
+                    strokeWidth: '32px',
                   }}
                 />
               </svg>

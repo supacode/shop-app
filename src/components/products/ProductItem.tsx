@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { IProduct } from '../../context/product-interfaces';
+import { IProduct } from '../../context/interfaces/product-interfaces';
 
 const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
   return (

@@ -1,8 +1,8 @@
 import React, { useReducer } from 'react';
 
 import productReducer from './productReducer';
-import ProductContext from './product-context';
-import { IState } from '../product-interfaces';
+import ProductContext from './productContext';
+import { IState } from '../interfaces/product-interfaces';
 
 const initialState: IState = {
   productsHome: [

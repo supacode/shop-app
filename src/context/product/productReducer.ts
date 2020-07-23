@@ -1,4 +1,4 @@
-import { IState, IAction } from '../product-interfaces';
+import { IState, IAction } from '../interfaces/product-interfaces';
 
 import { GET_HOME_PRODUCTS, GET_SHOP_PRODUCTS } from '../types';
 
