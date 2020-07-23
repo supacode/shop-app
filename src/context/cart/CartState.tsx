@@ -6,8 +6,16 @@ import CartContext from './cartContext';
 
 import { ADD_TO_CART } from '../types';
 
+let initialCart: [] = [];
+
+const savedCart = localStorage.getItem('cart');
+
+if (savedCart) {
+  initialCart = JSON.parse(savedCart);
+}
+
 const initialState: IState = {
-  products: [{ id: 'p1', count: 1 }],
+  products: initialCart,
 };
 
 const CartState: React.FC = ({ children }) => {

@@ -24,6 +24,9 @@ const cartReducer = (state: IState, action: IAction): IState => {
           products: [...state.products, { id: action.payload, count: 1 }],
         };
       }
+
+      localStorage.setItem('cart', JSON.stringify(state.products));
+
       return state;
 
     default:
