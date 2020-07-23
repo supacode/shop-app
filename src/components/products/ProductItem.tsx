@@ -2,22 +2,23 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-const ProductItem = () => {
+import { IProduct } from '../../context/product/interfaces';
+
+const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
   return (
     <div className="product">
       <figure>
-        {/* <img src={productImage1} alt="Product" /> */}
         <img
-          src={require('../../assets/img/products/product_1.png')}
+          src={require(`../../assets/img/products/${product.coverImage}`)}
           alt="Product"
         />
 
         <Link to="/products/123">
-          <figcaption>Lorem, ipsum dolor.</figcaption>
+          <figcaption>{product.name}</figcaption>
         </Link>
       </figure>
       <p className="product__price">
-        <span className="product__price--normal">$230</span>
+        <span className="product__price--normal">${product.price}</span>
       </p>
       <button className="product__add-cart">
         <svg width="32px" height="32px" viewBox="0 0 512 512">

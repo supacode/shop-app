@@ -1,18 +1,12 @@
 import { createContext } from 'react';
 
-export interface Product {
-  name: string;
-  price: number;
-}
+import { IState } from './interfaces';
 
-interface Context {
-  homeProducts: Product[];
-  shopProducts: Product[];
-}
+const initialState: IState = {
+  productsHome: [],
+  productsShop: []
+};
 
-const ProductContext = createContext<Context>({
-  homeProducts: [],
-  shopProducts: []
-});
+const ProductContext = createContext<IState>(initialState);
 
 export default ProductContext;

@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import ProductState from './context/product/ProductState';
-
 import MainHeader from './components/layout/MainHeader';
 import Newsletter from './components/layout/Newsletter';
 import Footer from './components/layout/Footer';
@@ -17,13 +15,13 @@ import ShopPage from './components/shop/ShopPage';
 
 import './assets/scss/style.scss';
 
+import ProductState from './context/product/ProductState';
+
 const App: React.FC = () => {
   return (
     <div>
-      <BrowserRouter>
-        <ProductState>
-          {/*  */}
-
+      <ProductState>
+        <BrowserRouter>
           <MainHeader />
           <Switch>
             {/* Landing page */}
@@ -65,10 +63,8 @@ const App: React.FC = () => {
           </Switch>
 
           <Footer />
-
-          {/*  */}
-        </ProductState>
-      </BrowserRouter>
+        </BrowserRouter>
+      </ProductState>
     </div>
   );
 };

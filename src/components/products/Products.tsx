@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import ProductContext from '../../context/product/product-context';
+
 import ProductItem from './ProductItem';
 
 const ProductsHomePage = () => {
+  const { productsHome } = useContext(ProductContext);
+
   return (
     <div className="products">
       <div className="row">
-        <ProductItem />
+        {productsHome.map(product => (
+          <ProductItem product={product} />
+        ))}
       </div>
     </div>
   );

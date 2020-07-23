@@ -1,19 +1,39 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 
-import ProductContext, { Product } from './product-context';
+import productReducer from './productReducer';
+import ProductContext from './product-context';
+import { IState } from './interfaces';
+
+const initialState: IState = {
+  productsHome: [
+    {
+      name: 'Product 1',
+      price: 21.5,
+      coverImage: 'product_1.png'
+    },
+    {
+      name: 'Product 2',
+      price: 14,
+      coverImage: 'product_2.png'
+    },
+    {
+      name: 'Product 3',
+      price: 20,
+      coverImage: 'product_3.png'
+    }
+  ],
+  productsShop: []
+};
 
 const ProductState: React.FC = ({ children }) => {
   // eslint-disable-next-line
-  const [homeProducts, setHomeProducts] = useState<Product[]>([]);
-
-  // eslint-disable-next-line
-  const [shopProducts, setShopProducts] = useState<Product[]>([]);
+  const [state, dispatch] = useReducer(productReducer, initialState);
 
   return (
     <ProductContext.Provider
       value={{
-        homeProducts,
-        shopProducts
+        productsHome: state.productsHome,
+        productsShop: state.productsShop
       }}
     >
       {children}

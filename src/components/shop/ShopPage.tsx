@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import ProductItem from '../products/ProductItem';
+// import ProductItem from '../products/ProductItem';
 
 const ShopPage: React.FC = () => {
   return (
@@ -11,9 +11,9 @@ const ShopPage: React.FC = () => {
       <div className="shop">
         <div className="products">
           <div className="row">
+            {/* <ProductItem />
             <ProductItem />
-            <ProductItem />
-            <ProductItem />
+            <ProductItem /> */}
           </div>
         </div>
       </div>
