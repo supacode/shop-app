@@ -1,6 +1,6 @@
 import { IAction, IState } from '../interfaces/cart-interfaces';
 
-import { ADD_TO_CART } from '../types';
+import { ADD_TO_CART, REMOVE_ITEM_CART } from '../types';
 
 const cartReducer = (state: IState, action: IAction): IState => {
   switch (action.type) {
@@ -27,6 +27,10 @@ const cartReducer = (state: IState, action: IAction): IState => {
 
       localStorage.setItem('cart', JSON.stringify(state.products));
 
+      return state;
+
+    case REMOVE_ITEM_CART:
+      console.log(action.payload);
       return state;
 
     default:

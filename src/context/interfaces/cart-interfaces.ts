@@ -19,7 +19,8 @@ export interface IAction {
 
 export interface IState {
   products: ICartProduct[];
-  addCartProduct?: (productId: string | number) => void;
+  addCartProduct: (productId: string | number) => void;
+  removeCartItem: (productId: string | number) => void;
 }
 
 export interface ICartItem extends IProduct {

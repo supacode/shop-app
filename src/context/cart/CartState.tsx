@@ -4,7 +4,7 @@ import { IState } from '../interfaces/cart-interfaces';
 import cartReducer from './cartReducer';
 import CartContext from './cartContext';
 
-import { ADD_TO_CART } from '../types';
+import { ADD_TO_CART, REMOVE_ITEM_CART } from '../types';
 
 let initialCart: [] = [];
 
@@ -16,6 +16,8 @@ if (savedCart) {
 
 const initialState: IState = {
   products: initialCart,
+  addCartProduct: () => {},
+  removeCartItem: () => {},
 };
 
 const CartState: React.FC = ({ children }) => {
@@ -26,8 +28,14 @@ const CartState: React.FC = ({ children }) => {
     dispatch({ type: ADD_TO_CART, payload: productId });
   };
 
+  const removeCartItem = (productId: number | string) => {
+    dispatch({ type: REMOVE_ITEM_CART, payload: productId });
+  };
+
   return (
-    <CartContext.Provider value={{ products: state.products, addCartProduct }}>
+    <CartContext.Provider
+      value={{ products: state.products, addCartProduct, removeCartItem }}
+    >
       {children}
     </CartContext.Provider>
   );
