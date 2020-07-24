@@ -36,6 +36,9 @@ const cartReducer = (state: IState, action: IAction): IState => {
           ...state.products.filter((product) => product.id !== action.payload),
         ],
       };
+
+      localStorage.setItem('cart', JSON.stringify(state.products));
+
       return state;
 
     default:
