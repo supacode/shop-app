@@ -30,7 +30,12 @@ const cartReducer = (state: IState, action: IAction): IState => {
       return state;
 
     case REMOVE_ITEM_CART:
-      console.log(action.payload);
+      state = {
+        ...state,
+        products: [
+          ...state.products.filter((product) => product.id !== action.payload),
+        ],
+      };
       return state;
 
     default:
