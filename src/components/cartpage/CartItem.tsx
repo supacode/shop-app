@@ -7,7 +7,9 @@ import CartContext from '../../context/cart/cartContext';
 const CartItem: React.FC<{
   product: ICartItem;
 }> = ({ product }) => {
-  const { addCartProduct, removeCartItem } = useContext(CartContext);
+  const { addCartProduct, removeCartItem, decreaseQuantity } = useContext(
+    CartContext,
+  );
 
   return (
     <div className="cart-item">
@@ -22,7 +24,11 @@ const CartItem: React.FC<{
         </Link>
       </div>
       <div className="cart-item__quantity">
-        <button type="button" className="cart-item__quantity--reduce">
+        <button
+          type="button"
+          onClick={() => decreaseQuantity(product.id)}
+          className="cart-item__quantity--reduce"
+        >
           -
         </button>
         <input

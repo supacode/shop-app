@@ -1,6 +1,10 @@
 import { IAction, IState } from '../interfaces/cart-interfaces';
 
-import { ADD_TO_CART, REMOVE_ITEM_CART } from '../types';
+import {
+  ADD_TO_CART,
+  REMOVE_ITEM_CART,
+  DECREASE_PRODUCT_QUANTITY,
+} from '../types';
 
 const cartReducer = (state: IState, action: IAction): IState => {
   switch (action.type) {
@@ -41,6 +45,24 @@ const cartReducer = (state: IState, action: IAction): IState => {
 
       return state;
 
+    case DECREASE_PRODUCT_QUANTITY:
+      state = {
+        ...state,
+        products: [
+          ...state.products.map((product) => {
+            if (product.id === action.payload) {
+              if (product.count > 1) {
+                return { ...product, count: product.count - 1 };
+              }
+            }
+
+            return product;
+          }),
+        ],
+      };
+      localStorage.setItem('cart', JSON.stringify(state.products));
+
+      return state;
     default:
       return state;
   }

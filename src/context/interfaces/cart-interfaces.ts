@@ -21,6 +21,7 @@ export interface IState {
   products: ICartProduct[];
   addCartProduct: (productId: string | number) => void;
   removeCartItem: (productId: string | number) => void;
+  decreaseQuantity: (productId: string | number) => void;
 }
 
 export interface ICartItem extends IProduct {
