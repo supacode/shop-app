@@ -29,7 +29,7 @@ const CartPage: React.FC = () => {
             <CartItem product={product} key={product.id} />
           ))}
 
-        <CartFooter />
+        <CartFooter products={products} />
       </div>
     </div>
   );
