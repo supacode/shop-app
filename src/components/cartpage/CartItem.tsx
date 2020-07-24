@@ -1,29 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ICartItem } from '../../context/interfaces/cart-interfaces';
 
-const CartItem: React.FC = () => {
+const CartItem: React.FC<{
+  product: ICartItem;
+}> = ({ product }) => {
   return (
     <div className="cart-item">
       <div className="cart-item__product">
         <img
-          src={require('../../assets/img/products/product_3.png')}
+          src={require(`../../assets/img/products/${product.coverImage}`)}
           alt="Product"
         />
         <Link to="/products/123" className="cart-item__product--link">
-          <h3>Lorem, ipsum dolor.</h3>
-          <p>#2321356</p>
+          {/* <h3></h3> */}
+          <p>#{product.id}</p>
         </Link>
       </div>
       <div className="cart-item__quantity">
         <button type="button" className="cart-item__quantity--reduce">
           -
         </button>
-        <input className="cart-item__quantity--count" type="text" value="1" />
+        <input
+          className="cart-item__quantity--count"
+          value={product.count}
+          type="text"
+          onChange={() => {}}
+        />
         <button type="button" className="cart-item__quantity--add">
           +
         </button>
       </div>
-      <div className="cart-item__price">$150</div>
+      <div className="cart-item__price">${product.price * product.count}</div>
       <button className="cart-item__remove">&times;</button>
     </div>
   );

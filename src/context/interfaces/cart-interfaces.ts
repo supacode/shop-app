@@ -1,5 +1,7 @@
+import { IProduct } from './product-interfaces';
+
 export interface ICartProduct {
-  id: string;
+  id: string | number;
   count: number;
 }
 
@@ -18,4 +20,8 @@ export interface IAction {
 export interface IState {
   products: ICartProduct[];
   addCartProduct?: (productId: string | number) => void;
+}
+
+export interface ICartItem extends IProduct {
+  count: number;
 }
