@@ -3,10 +3,11 @@ import { useParams } from 'react-router-dom';
 
 import ProductContext from '../../context/product/productContext';
 import Spinner from '../layout/Spinner';
-import { IState } from '../../context/interfaces/product-interfaces';
+import CartContext from '../../context/cart/cartContext';
 
 const ProductPage: React.FC = () => {
-  const { getProduct, loading, product } = useContext<IState>(ProductContext);
+  const { getProduct, loading, product } = useContext(ProductContext);
+  const { addCartProduct } = useContext(CartContext);
 
   const slug = useParams<{ slug: string }>().slug;
 
@@ -47,7 +48,10 @@ const ProductPage: React.FC = () => {
                 {product.description}
               </p>
 
-              <button className="product-detail__add-to-cart">
+              <button
+                onClick={() => addCartProduct(product.id, product.slug)}
+                className="product-detail__add-to-cart"
+              >
                 <svg width="32px" height="32px" viewBox="0 0 512 512">
                   <circle
                     cx="176"
