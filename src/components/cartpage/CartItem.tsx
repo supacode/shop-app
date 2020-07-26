@@ -15,11 +15,11 @@ const CartItem: React.FC<{
     <div className="cart-item">
       <div className="cart-item__product">
         <img
-          src={require(`../../assets/img/products/${product.coverImage}`)}
+          src={`http://localhost:5000/images/products/${product.coverImage}`}
           alt="Product"
         />
         <Link to="/products/123" className="cart-item__product--link">
-          {/* <h3></h3> */}
+          <h3>{product.name}</h3>
           <p>#{product.id}</p>
         </Link>
       </div>

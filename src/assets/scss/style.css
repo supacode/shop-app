@@ -261,6 +261,15 @@ body {
   font-size: 120%;
 }
 
+.product figure {
+  width: 100%;
+}
+
+.product figure img {
+  max-height: 300px;
+  width: 100%;
+}
+
 .product figure figcaption {
   line-height: 2;
 }

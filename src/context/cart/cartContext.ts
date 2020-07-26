@@ -2,7 +2,7 @@ import { createContext } from 'react';
 
 import { IState } from '../interfaces/cart-interfaces';
 
-const initialState: IState = {
+export const initialState: IState = {
   products: [],
   addCartProduct: () => {},
   removeCartItem: () => {},

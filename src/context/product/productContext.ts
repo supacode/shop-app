@@ -2,9 +2,11 @@ import { createContext } from 'react';
 
 import { IState } from '../interfaces/product-interfaces';
 
-const initialState: IState = {
+export const initialState: IState = {
   productsHome: [],
   productsShop: [],
+  loading: true,
+  getProductsHome: () => {},
 };
 
 const ProductContext = createContext<IState>(initialState);

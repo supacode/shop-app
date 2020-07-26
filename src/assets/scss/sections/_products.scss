@@ -47,6 +47,11 @@
   }
 
   figure {
+    width: 100%;
+    img {
+      max-height: 300px;
+      width: 100%;
+    }
     figcaption {
       line-height: 2;
     }

@@ -5,6 +5,7 @@ export interface IProduct {
   price: number;
   coverImage: string;
   description?: string;
+  slug?: string;
 }
 
 // Action Interface
@@ -17,4 +18,6 @@ export interface IAction {
 export interface IState {
   productsHome: IProduct[];
   productsShop: IProduct[];
+  loading: boolean;
+  getProductsHome: () => void;
 }

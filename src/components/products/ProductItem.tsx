@@ -9,15 +9,17 @@ import { IProduct } from '../../context/interfaces/product-interfaces';
 const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
   const { addCartProduct } = useContext(CartContext);
 
+  console.log(product);
+
   return (
     <div className="product">
       <figure>
         <img
-          src={require(`../../assets/img/products/${product.coverImage}`)}
+          src={`http://localhost:5000/images/products/${product.coverImage}`}
           alt="Product"
         />
 
-        <Link to="/products/123">
+        <Link to={`/products/${product.slug}`}>
           <figcaption>{product.name}</figcaption>
         </Link>
       </figure>
