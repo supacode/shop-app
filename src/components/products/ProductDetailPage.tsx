@@ -96,7 +96,6 @@ const ProductPage: React.FC = () => {
             </div>
           </Fragment>
         )}
-        ;
       </div>
     </div>
   );
