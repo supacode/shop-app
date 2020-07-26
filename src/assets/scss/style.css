@@ -232,13 +232,14 @@ body {
 }
 
 .product {
-  width: 25%;
+  width: 23%;
   text-align: center;
   margin: 1rem 0;
   -webkit-transition: 0.4s ease-out border;
   transition: 0.4s ease-out border;
   border-radius: 10px;
   overflow: hidden;
+  margin: 1rem;
 }
 
 .product:hover, .product:focus {
@@ -263,11 +264,13 @@ body {
 
 .product figure {
   width: 100%;
+  padding: 1rem;
 }
 
 .product figure img {
-  max-height: 300px;
-  width: 100%;
+  max-height: 180px;
+  padding: 1rem 0;
+  margin: auto;
 }
 
 .product figure figcaption {
@@ -409,10 +412,19 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-right: 1rem;
+  max-width: 100px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+}
+
+.cart-item__product--img {
+  max-height: 180px;
+}
+
+.cart-item__product--link {
+  margin-top: 1rem;
 }
 
 .cart-item__product--link:hover {

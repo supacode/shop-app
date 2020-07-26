@@ -15,8 +15,9 @@ const CartItem: React.FC<{
     <div className="cart-item">
       <div className="cart-item__product">
         <img
+          className="cart-item__product--img"
+          alt={product.name}
           src={`http://localhost:5000/images/products/${product.coverImage}`}
-          alt="Product"
         />
         <Link to="/products/123" className="cart-item__product--link">
           <h3>{product.name}</h3>
