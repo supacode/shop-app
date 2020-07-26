@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
-
 import { useParams } from 'react-router-dom';
+
 import ProductContext from '../../context/product/productContext';
 import Spinner from '../layout/Spinner';
 

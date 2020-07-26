@@ -10,7 +10,7 @@ export interface IProduct {
 
 // Action Interface
 export interface IAction {
-  payload: any;
+  payload?: any;
   type: string;
 }
 
@@ -22,4 +22,5 @@ export interface IState {
   product: null;
   getProductsHome: () => void;
   getProduct: (slug: string) => void;
+  loadingProduct?: () => void;
 }

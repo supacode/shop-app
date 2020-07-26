@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import productReducer from './productReducer';
 import ProductContext, { initialState } from './productContext';
-import { GET_HOME_PRODUCTS, GET_PRODUCT } from '../types';
+import { GET_HOME_PRODUCTS, GET_PRODUCT, LOADING_PRODUCT } from '../types';
 
 const ProductState: React.FC = ({ children }) => {
   // eslint-disable-next-line
@@ -21,7 +21,7 @@ const ProductState: React.FC = ({ children }) => {
 
   const getProduct = async (slug: string) => {
     try {
-      console.log(slug);
+      dispatch({ type: LOADING_PRODUCT });
 
       const res = await axios.get(`/products/${slug}`);
 
