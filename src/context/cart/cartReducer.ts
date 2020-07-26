@@ -9,12 +9,12 @@ import {
 const cartReducer = (state: IState, action: IAction): IState => {
   switch (action.type) {
     case ADD_TO_CART:
-      if (state.products.find((prod) => prod.id === action.payload)) {
+      if (state.products.find((prod) => prod.id === action.payload.id)) {
         state = {
           ...state,
           products: [
             ...state.products.map((product) => {
-              if (product.id === action.payload) {
+              if (product.id === action.payload.id) {
                 return { ...product, count: product.count + 1 };
               } else {
                 return product;
@@ -25,7 +25,10 @@ const cartReducer = (state: IState, action: IAction): IState => {
       } else {
         state = {
           ...state,
-          products: [...state.products, { id: action.payload, count: 1 }],
+          products: [
+            ...state.products,
+            { id: action.payload.id, count: 1, slug: action.payload.slug },
+          ],
         };
       }
 

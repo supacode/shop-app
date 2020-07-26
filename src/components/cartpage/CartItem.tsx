@@ -19,7 +19,10 @@ const CartItem: React.FC<{
           alt={product.name}
           src={`http://localhost:5000/images/products/${product.coverImage}`}
         />
-        <Link to="/products/123" className="cart-item__product--link">
+        <Link
+          to={`/products/${product.slug}`}
+          className="cart-item__product--link"
+        >
           <h3>{product.name}</h3>
           <p>#{product.id}</p>
         </Link>
@@ -39,7 +42,7 @@ const CartItem: React.FC<{
           onChange={() => {}}
         />
         <button
-          onClick={() => addCartProduct(product.id)}
+          onClick={() => addCartProduct(product.id, product.slug)}
           type="button"
           className="cart-item__quantity--add"
         >

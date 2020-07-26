@@ -15,7 +15,7 @@ const CartPage: React.FC = () => {
   cartProducts.forEach((prod) => {
     productsHome.map((product) => {
       if (prod.id === product.id) {
-        products.push({ ...product, count: prod.count });
+        products.push({ ...product, count: prod.count, slug: prod.slug });
       }
       return products;
     });

@@ -29,8 +29,8 @@ const CartState: React.FC = ({ children }) => {
   // eslint-disable-next-line
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
-  const addCartProduct = (productId: number | string) => {
-    dispatch({ type: ADD_TO_CART, payload: productId });
+  const addCartProduct = (productId: number | string, slug: string) => {
+    dispatch({ type: ADD_TO_CART, payload: { id: productId, slug } });
   };
 
   const removeCartItem = (productId: number | string) => {
