@@ -2,9 +2,10 @@ import React, { useContext, useEffect } from 'react';
 
 import { useParams } from 'react-router-dom';
 import ProductContext from '../../context/product/productContext';
+import Spinner from '../layout/Spinner';
 
 const ProductPage: React.FC = () => {
-  const { getProduct } = useContext(ProductContext);
+  const { getProduct, loading } = useContext(ProductContext);
 
   const slug = useParams<{ slug: string }>().slug;
 
@@ -12,6 +13,8 @@ const ProductPage: React.FC = () => {
     getProduct(slug);
     // eslint-disable-next-line
   }, []);
+
+  if (loading) return <Spinner />;
 
   return (
     <div className="product-detail">

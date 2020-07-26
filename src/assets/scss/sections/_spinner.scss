@@ -1,0 +1,20 @@
+.spinner {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: $accent;
+  &__circle {
+    width: 100px;
+    border: 2px solid $accent;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border-right-color: transparent;
+    animation: spin 2s infinite linear;
+  }
+  &__text {
+    font-weight: 550;
+    line-height: 3;
+  }
+}

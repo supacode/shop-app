@@ -27,6 +27,7 @@ const App: React.FC = () => {
         <ProductState>
           <CartState>
             <MainHeader />
+
             <Switch>
               {/* Landing page */}
               <Route path="/" exact>
