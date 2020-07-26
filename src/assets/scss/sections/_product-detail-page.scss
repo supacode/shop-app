@@ -1,5 +1,8 @@
 .product-detail {
+  min-height: 50vh;
+  position: relative;
   margin: 3rem 0;
+
   .row {
     display: flex;
     justify-content: space-between;
@@ -49,26 +52,31 @@
 
   &__preview {
     padding-right: 2rem;
-    width: 48%;
+    width: 45%;
     display: flex;
+    text-align: center;
+
     &--image {
       flex: 1.5;
       overflow: hidden;
       margin-left: 1rem;
       img {
+        max-height: 400px;
         border-radius: 0.5rem;
       }
     }
     &--thumbnails {
-      img {
-        max-height: 150px;
-        cursor: pointer;
-        margin-bottom: 1rem;
-        border-radius: 0.5rem;
-      }
-      flex: 0.4;
+      margin-right: 2rem;
       display: flex;
       flex-direction: column;
+      max-width: 100px;
+      img {
+        max-height: 150px;
+        max-height: 200px;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        border-radius: 0.5rem;
+      }
     }
   }
 }

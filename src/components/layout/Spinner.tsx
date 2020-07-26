@@ -3,7 +3,8 @@ import React from 'react';
 const Spinner: React.FC<{
   text?: string;
   size?: number;
-}> = ({ text, size }) => {
+  centered?: boolean;
+}> = ({ text, size, centered }) => {
   return (
     <div className="spinner">
       <div

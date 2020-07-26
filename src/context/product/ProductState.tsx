@@ -25,8 +25,6 @@ const ProductState: React.FC = ({ children }) => {
 
       const res = await axios.get(`/products/${slug}`);
 
-      console.log(res.data);
-
       dispatch({ type: GET_PRODUCT, payload: res.data.product });
     } catch (err) {
       console.log(err);

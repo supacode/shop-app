@@ -6,6 +6,7 @@ export interface IProduct {
   coverImage: string;
   description?: string;
   slug?: string;
+  images?: [];
 }
 
 // Action Interface
@@ -19,7 +20,7 @@ export interface IState {
   productsHome: IProduct[];
   productsShop: IProduct[];
   loading: boolean;
-  product: null;
+  product: IProduct;
   getProductsHome: () => void;
   getProduct: (slug: string) => void;
   loadingProduct?: () => void;

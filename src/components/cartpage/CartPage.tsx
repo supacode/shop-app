@@ -24,7 +24,7 @@ const CartPage: React.FC = () => {
   return (
     <div className="cart">
       <div className="row">
-        {products.length > 0 &&
+        {products.length &&
           products.map((product) => (
             <CartItem product={product} key={product.id} />
           ))}
