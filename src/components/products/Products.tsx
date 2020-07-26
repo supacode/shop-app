@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 
 import ProductContext from '../../context/product/productContext';
-
 import ProductItem from './ProductItem';
+import { IState } from '../../context/interfaces/product-interfaces';
 
-const ProductsHomePage = () => {
-  const { productsHome, getProductsHome } = useContext(ProductContext);
+const ProductsHomePage: React.FC = () => {
+  const { productsHome, getProductsHome } = useContext<IState>(ProductContext);
 
   useEffect(() => {
     getProductsHome();

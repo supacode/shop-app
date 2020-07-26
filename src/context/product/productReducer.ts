@@ -1,9 +1,12 @@
 import { IState, IAction } from '../interfaces/product-interfaces';
 
-import { GET_HOME_PRODUCTS, GET_SHOP_PRODUCTS } from '../types';
+import { GET_HOME_PRODUCTS, GET_SHOP_PRODUCTS, GET_PRODUCT } from '../types';
 
 const productReducer = (state: IState, action: IAction): IState => {
   switch (action.type) {
+    case GET_PRODUCT:
+      state = { ...state, product: action.payload };
+      return state;
     case GET_HOME_PRODUCTS:
       state = { ...state, productsHome: action.payload };
       return state;

@@ -56,7 +56,7 @@ const App: React.FC = () => {
               </Route>
 
               {/* Product Page */}
-              <Route path="/products/:productId" exact>
+              <Route path="/products/:slug" exact>
                 <ProductPage />
               </Route>
 

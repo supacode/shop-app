@@ -1,4 +1,5 @@
 // Products
+export const GET_PRODUCT = 'GET_PRODUCT';
 export const GET_HOME_PRODUCTS = 'GET_HOME_PRODUCTS';
 export const GET_SHOP_PRODUCTS = 'GET_SHOP_PRODUCTS';
 

@@ -6,7 +6,9 @@ export const initialState: IState = {
   productsHome: [],
   productsShop: [],
   loading: true,
+  product: null,
   getProductsHome: () => {},
+  getProduct: () => {},
 };
 
 const ProductContext = createContext<IState>(initialState);

@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+
+import { useParams } from 'react-router-dom';
+import ProductContext from '../../context/product/productContext';
 
 const ProductPage: React.FC = () => {
+  const { getProduct } = useContext(ProductContext);
+
+  const slug = useParams<{ slug: string }>().slug;
+
+  useEffect(() => {
+    getProduct(slug);
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className="product-detail">
       <div className="row">
@@ -58,7 +70,7 @@ const ProductPage: React.FC = () => {
                   fill: 'none',
                   strokeLinecap: 'round',
                   strokeLinejoin: 'round',
-                  strokeWidth: '32px'
+                  strokeWidth: '32px',
                 }}
               />
               <circle
@@ -69,7 +81,7 @@ const ProductPage: React.FC = () => {
                   fill: 'none',
                   strokeLinecap: 'round',
                   strokeLinejoin: 'round',
-                  strokeWidth: '32px'
+                  strokeWidth: '32px',
                 }}
               />
               <polyline
@@ -78,7 +90,7 @@ const ProductPage: React.FC = () => {
                   fill: 'none',
                   strokeLinecap: 'round',
                   strokeLinejoin: 'round',
-                  strokeWidth: '32px'
+                  strokeWidth: '32px',
                 }}
               />
               <path
@@ -87,7 +99,7 @@ const ProductPage: React.FC = () => {
                   fill: 'none',
                   strokeLinecap: 'round',
                   strokeLinejoin: 'round',
-                  strokeWidth: '32px'
+                  strokeWidth: '32px',
                 }}
               />
             </svg>

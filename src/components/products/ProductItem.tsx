@@ -1,15 +1,11 @@
 import React, { useContext } from 'react';
-
 import { Link } from 'react-router-dom';
 
 import CartContext from '../../context/cart/cartContext';
-
 import { IProduct } from '../../context/interfaces/product-interfaces';
 
 const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
   const { addCartProduct } = useContext(CartContext);
-
-  console.log(product);
 
   return (
     <div className="product">
