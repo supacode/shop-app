@@ -16,7 +16,8 @@ const CartState: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
   useEffect(() => {
-    loadProducts();
+    (async () => await loadProducts())();
+
     // eslint-disable-next-line
   }, []);
 

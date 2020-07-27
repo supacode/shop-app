@@ -44,6 +44,7 @@ const cartReducer = (state: IState, action: IAction): IState => {
       };
 
       return state;
+
     case REMOVE_ITEM_CART:
       state = {
         ...state,

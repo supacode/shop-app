@@ -9,9 +9,14 @@ const CartPage: React.FC = () => {
   const products: ICartItem[] = [];
 
   // eslint-disable-next-line
-  const { loadProducts, loadedProducts, products: cartProducts } = useContext(
-    CartContext,
-  );
+  const { products: cartProducts, loadedProducts } = useContext(CartContext);
+
+  cartProducts.forEach((prod) => {
+    loadedProducts.map(
+      (product) =>
+        product.id === prod.id && products.push({ ...prod, ...product }),
+    );
+  });
 
   return (
     <div className="cart">
