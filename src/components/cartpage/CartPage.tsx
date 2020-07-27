@@ -3,23 +3,15 @@ import React, { useContext } from 'react';
 import CartItem from './CartItem';
 import CartFooter from './CartFooter';
 import CartContext from '../../context/cart/cartContext';
-import ProductContext from '../../context/product/productContext';
 import { ICartItem } from '../../context/interfaces/cart-interfaces';
 
 const CartPage: React.FC = () => {
-  const { products: cartProducts } = useContext(CartContext);
-  const { productsHome } = useContext(ProductContext);
+  const products: ICartItem[] = [];
 
-  let products: ICartItem[] = [];
-
-  cartProducts.forEach((prod) => {
-    productsHome.map((product) => {
-      if (prod.id === product.id) {
-        products.push({ ...product, count: prod.count, slug: prod.slug });
-      }
-      return products;
-    });
-  });
+  // eslint-disable-next-line
+  const { loadProducts, loadedProducts, products: cartProducts } = useContext(
+    CartContext,
+  );
 
   return (
     <div className="cart">

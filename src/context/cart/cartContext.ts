@@ -2,8 +2,19 @@ import { createContext } from 'react';
 
 import { IState } from '../interfaces/cart-interfaces';
 
+let initialCart: [] = [];
+
+const savedCart = localStorage.getItem('cart');
+
+if (savedCart) {
+  initialCart = JSON.parse(savedCart);
+}
+
 export const initialState: IState = {
-  products: [],
+  loading: true,
+  products: initialCart || [],
+  loadedProducts: [],
+  loadProducts: () => {},
   addCartProduct: () => {},
   removeCartItem: () => {},
   decreaseQuantity: () => {},

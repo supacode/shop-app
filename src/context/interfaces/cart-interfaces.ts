@@ -15,11 +15,14 @@ export interface ICart {
 
 export interface IAction {
   type: string;
-  payload: any;
+  payload?: any;
 }
 
 export interface IState {
   products: ICartProduct[];
+  loadedProducts: ICartItem[];
+  loading: boolean;
+  loadProducts?: () => void;
   addCartProduct: (productId: string | number, slug: string) => void;
   removeCartItem: (productId: string | number) => void;
   decreaseQuantity: (productId: string | number) => void;

@@ -1,33 +1,35 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
+import axios from 'axios';
 
-import { IState } from '../interfaces/cart-interfaces';
 import cartReducer from './cartReducer';
-import CartContext from './cartContext';
+import CartContext, { initialState } from './cartContext';
 
 import {
   ADD_TO_CART,
   REMOVE_ITEM_CART,
   DECREASE_PRODUCT_QUANTITY,
+  LOAD_PRODUCT,
 } from '../types';
-
-let initialCart: [] = [];
-
-const savedCart = localStorage.getItem('cart');
-
-if (savedCart) {
-  initialCart = JSON.parse(savedCart);
-}
-
-const initialState: IState = {
-  products: initialCart,
-  addCartProduct: () => {},
-  removeCartItem: () => {},
-  decreaseQuantity: () => {},
-};
 
 const CartState: React.FC = ({ children }) => {
   // eslint-disable-next-line
   const [state, dispatch] = useReducer(cartReducer, initialState);
+
+  useEffect(() => {
+    loadProducts();
+    // eslint-disable-next-line
+  }, []);
+
+  const loadProducts = async () => {
+    try {
+      state.products.forEach(async (prod) => {
+        const res = await axios.get(`/products/${prod.slug}`);
+        dispatch({ type: LOAD_PRODUCT, payload: res.data.product });
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const addCartProduct = (productId: number | string, slug: string) => {
     dispatch({ type: ADD_TO_CART, payload: { id: productId, slug } });
@@ -44,10 +46,13 @@ const CartState: React.FC = ({ children }) => {
   return (
     <CartContext.Provider
       value={{
+        loading: state.loading,
         products: state.products,
+        loadedProducts: state.loadedProducts,
         addCartProduct,
         removeCartItem,
         decreaseQuantity,
+        loadProducts,
       }}
     >
       {children}
