@@ -25,25 +25,27 @@ const ProductPage: React.FC = () => {
         {!loading && product.id && (
           <Fragment>
             <div className="product-detail__preview">
-              <div className="product-detail__preview--thumbnails">
-                {product.images?.map((image, index) => (
-                  <img
-                    key={index}
-                    src={`http://localhost:5000/images/products/${image}`}
-                    alt={`${index} ${product.name}`}
-                  />
-                ))}
-              </div>
               <div className="product-detail__preview--image">
                 <img
                   alt={product.name}
                   src={`http://localhost:5000/images/products/${product.coverImage}`}
                 />
               </div>
+
+              <div className="product-detail__preview--thumbnails">
+                {product.images?.map((image) => (
+                  <div
+                    className="product-detail__preview--thumb"
+                    style={{
+                      backgroundImage: `url(http://localhost:5000/images/products/${image})`,
+                    }}
+                  ></div>
+                ))}
+              </div>
             </div>
             <div className="product-detail__content">
               <h1 className="product-detail__content--title">{product.name}</h1>
-              <p className="product-detail__price">{product.price}</p>
+              <p className="product-detail__price">${product.price}</p>
               <p className="product-detail__content--description">
                 {product.description}
               </p>

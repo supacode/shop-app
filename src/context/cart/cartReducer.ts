@@ -5,6 +5,7 @@ import {
   REMOVE_ITEM_CART,
   DECREASE_PRODUCT_QUANTITY,
   LOAD_PRODUCT,
+  SET_LOADING,
 } from '../types';
 
 const cartReducer = (state: IState, action: IAction): IState => {
@@ -43,8 +44,18 @@ const cartReducer = (state: IState, action: IAction): IState => {
         loadedProducts: [...state.loadedProducts, action.payload],
       };
 
+      // cartProducts.forEach((prod) => {
+      //   loadedProducts.map(
+      //     (product) =>
+      //       product.id === prod.id && products.push({ ...prod, ...product }),
+      //   );
+      // });
+
       return state;
 
+    case SET_LOADING:
+      state = { ...state, loading: action.payload };
+      return state;
     case REMOVE_ITEM_CART:
       state = {
         ...state,

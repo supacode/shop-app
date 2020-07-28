@@ -9,6 +9,7 @@ import {
   REMOVE_ITEM_CART,
   DECREASE_PRODUCT_QUANTITY,
   LOAD_PRODUCT,
+  SET_LOADING,
 } from '../types';
 
 const CartState: React.FC = ({ children }) => {
@@ -23,10 +24,14 @@ const CartState: React.FC = ({ children }) => {
 
   const loadProducts = async () => {
     try {
-      state.products.forEach(async (prod) => {
-        const res = await axios.get(`/products/${prod.slug}`);
+      dispatch({ type: SET_LOADING, payload: true });
+
+      for (let i = 0; i < state.products.length; i++) {
+        const res = await axios.get(`/products/${state.products[i].slug}`);
         dispatch({ type: LOAD_PRODUCT, payload: res.data.product });
-      });
+      }
+
+      dispatch({ type: SET_LOADING, payload: false });
     } catch (err) {
       console.log(err);
     }

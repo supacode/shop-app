@@ -3,30 +3,22 @@ import React, { useContext } from 'react';
 import CartItem from './CartItem';
 import CartFooter from './CartFooter';
 import CartContext from '../../context/cart/cartContext';
-import { ICartItem } from '../../context/interfaces/cart-interfaces';
+import Spinner from '../layout/Spinner';
 
 const CartPage: React.FC = () => {
-  const products: ICartItem[] = [];
-
   // eslint-disable-next-line
-  const { products: cartProducts, loadedProducts } = useContext(CartContext);
-
-  cartProducts.forEach((prod) => {
-    loadedProducts.map(
-      (product) =>
-        product.id === prod.id && products.push({ ...prod, ...product }),
-    );
-  });
+  const { products, loadedProducts, loading } = useContext(CartContext);
 
   return (
     <div className="cart">
       <div className="row">
+        {loading && <Spinner />}
         {products.length > 0 &&
-          products.map((product) => (
+          loadedProducts.map((product) => (
             <CartItem product={product} key={product.id} />
           ))}
 
-        <CartFooter products={products} />
+        <CartFooter products={loadedProducts} />
       </div>
     </div>
   );

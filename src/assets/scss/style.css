@@ -939,6 +939,7 @@ body {
   .product-detail__preview--thumbnails {
     width: 100%;
     overflow-x: scroll;
+    max-width: 100%;
     -webkit-box-flex: 0.4;
         -ms-flex: 0.4;
             flex: 0.4;
@@ -951,6 +952,7 @@ body {
             flex-direction: row;
   }
   .product-detail__preview--thumbnails img {
+    max-height: 120px;
     margin: 0.5rem 0.5rem 0 0;
   }
   .cart-item__quantity {

@@ -6,7 +6,6 @@
   .row {
     display: flex;
     justify-content: space-between;
-    align-items: stretch;
   }
 
   &__add-to-cart {
@@ -51,32 +50,35 @@
   }
 
   &__preview {
-    padding-right: 2rem;
     width: 45%;
-    display: flex;
-    text-align: center;
-
     &--image {
-      flex: 1.5;
-      overflow: hidden;
-      margin-left: 1rem;
+      margin: auto;
+      text-align: center;
+      margin-bottom: 2rem;
       img {
-        max-height: 400px;
-        border-radius: 0.5rem;
+        max-height: 200px;
       }
     }
+
     &--thumbnails {
-      margin-right: 2rem;
-      display: flex;
-      flex-direction: column;
-      max-width: 100px;
-      img {
-        max-height: 150px;
-        max-height: 200px;
-        margin-bottom: 1rem;
-        cursor: pointer;
-        border-radius: 0.5rem;
-      }
+      overflow-x: scroll;
+      border-radius: 0.5rem;
+      display: grid;
+      grid-auto-flow: column;
+      overflow-x: scroll;
+      background: #eee;
+      place-items: center;
+      padding: 1rem 0;
+    }
+
+    &--thumb {
+      height: 100px;
+      width: 100px;
+      margin: 0 1rem;
+      display: inline-block;
+      border-radius: 0.5rem;
+      background-size: cover;
+      background-position: center/center;
     }
   }
 }
