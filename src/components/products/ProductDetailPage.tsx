@@ -44,8 +44,12 @@ const ProductPage: React.FC = () => {
               </div>
             </div>
             <div className="product-detail__content">
-              <h1 className="product-detail__content--title">{product.name}</h1>
-              <p className="product-detail__price">${product.price}</p>
+              <div>
+                <h1 className="product-detail__content--title">
+                  {product.name}
+                </h1>
+                <p className="product-detail__price">${product.price}</p>
+              </div>
               <p className="product-detail__content--description">
                 {product.description}
               </p>

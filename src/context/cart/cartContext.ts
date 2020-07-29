@@ -12,7 +12,7 @@ if (savedCart) {
 
 export const initialState: IState = {
   loading: true,
-  products: initialCart || [],
+  cartProducts: initialCart || [],
   loadedProducts: [],
   loadProducts: () => {},
   addCartProduct: () => {},

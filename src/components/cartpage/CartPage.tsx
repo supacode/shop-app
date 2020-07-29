@@ -7,13 +7,13 @@ import Spinner from '../layout/Spinner';
 
 const CartPage: React.FC = () => {
   // eslint-disable-next-line
-  const { products, loadedProducts, loading } = useContext(CartContext);
+  let { cartProducts, loadedProducts, loading } = useContext(CartContext);
 
   return (
     <div className="cart">
       <div className="row">
         {loading && <Spinner />}
-        {products.length > 0 &&
+        {cartProducts.length > 0 &&
           loadedProducts.map((product) => (
             <CartItem product={product} key={product.id} />
           ))}

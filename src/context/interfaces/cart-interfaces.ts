@@ -18,17 +18,17 @@ export interface IAction {
   payload?: any;
 }
 
+export interface ICartItem extends IProduct {
+  count: number;
+  slug: string;
+}
+
 export interface IState {
-  products: ICartProduct[];
+  cartProducts: ICartProduct[];
   loadedProducts: ICartItem[];
   loading: boolean;
   loadProducts?: () => void;
   addCartProduct: (productId: string | number, slug: string) => void;
   removeCartItem: (productId: string | number) => void;
   decreaseQuantity: (productId: string | number) => void;
-}
-
-export interface ICartItem extends IProduct {
-  count: number;
-  slug: string;
 }

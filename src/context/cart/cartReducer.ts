@@ -11,11 +11,11 @@ import {
 const cartReducer = (state: IState, action: IAction): IState => {
   switch (action.type) {
     case ADD_TO_CART:
-      if (state.products.find((prod) => prod.id === action.payload.id)) {
+      if (state.cartProducts.find((prod) => prod.id === action.payload.id)) {
         state = {
           ...state,
-          products: [
-            ...state.products.map((product) => {
+          cartProducts: [
+            ...state.cartProducts.map((product) => {
               if (product.id === action.payload.id) {
                 return { ...product, count: product.count + 1 };
               } else {
@@ -27,29 +27,33 @@ const cartReducer = (state: IState, action: IAction): IState => {
       } else {
         state = {
           ...state,
-          products: [
-            ...state.products,
-            { id: action.payload.id, count: 1, slug: action.payload.slug },
+          cartProducts: [
+            ...state.cartProducts,
+            { ...action.payload, count: 1 },
           ],
         };
       }
 
-      localStorage.setItem('cart', JSON.stringify(state.products));
+      localStorage.setItem('cart', JSON.stringify(state.cartProducts));
 
       return state;
 
     case LOAD_PRODUCT:
       state = {
         ...state,
-        loadedProducts: [...state.loadedProducts, action.payload],
+        loadedProducts: [
+          // eslint-disable-next-line array-callback-return
+          ...state.cartProducts.map((prod) => {
+            if (prod.id === action.payload.id) {
+              return {
+                ...action.payload,
+                count: prod.count,
+                price: action.payload.price,
+              };
+            }
+          }),
+        ],
       };
-
-      // cartProducts.forEach((prod) => {
-      //   loadedProducts.map(
-      //     (product) =>
-      //       product.id === prod.id && products.push({ ...prod, ...product }),
-      //   );
-      // });
 
       return state;
 
@@ -59,20 +63,22 @@ const cartReducer = (state: IState, action: IAction): IState => {
     case REMOVE_ITEM_CART:
       state = {
         ...state,
-        products: [
-          ...state.products.filter((product) => product.id !== action.payload),
+        cartProducts: [
+          ...state.cartProducts.filter(
+            (product) => product.id !== action.payload,
+          ),
         ],
       };
 
-      localStorage.setItem('cart', JSON.stringify(state.products));
+      localStorage.setItem('cart', JSON.stringify(state.cartProducts));
 
       return state;
 
     case DECREASE_PRODUCT_QUANTITY:
       state = {
         ...state,
-        products: [
-          ...state.products.map((product) => {
+        cartProducts: [
+          ...state.cartProducts.map((product) => {
             if (product.id === action.payload) {
               if (product.count > 1) {
                 return { ...product, count: product.count - 1 };
@@ -83,7 +89,7 @@ const cartReducer = (state: IState, action: IAction): IState => {
           }),
         ],
       };
-      localStorage.setItem('cart', JSON.stringify(state.products));
+      localStorage.setItem('cart', JSON.stringify(state.cartProducts));
 
       return state;
     default:
