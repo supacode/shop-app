@@ -30,7 +30,7 @@ const CartState: React.FC = ({ children }) => {
     dispatch({ type: DECREASE_PRODUCT_QUANTITY, payload: productId });
   };
 
-  const productInCart = (productId: string) => {
+  const isProductInCart = (productId: string) => {
     if (state.products.find((prod) => prod.id === productId)) return true;
     return false;
   };
@@ -40,7 +40,7 @@ const CartState: React.FC = ({ children }) => {
       value={{
         loading: state.loading,
         products: state.products,
-        productInCart,
+        isProductInCart,
         addCartProduct,
         removeCartItem,
         decreaseQuantity,

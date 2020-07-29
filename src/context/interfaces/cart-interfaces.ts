@@ -19,7 +19,7 @@ export interface IAction {
 export interface IState {
   products: ICartProduct[];
   loading: boolean;
-  productInCart: (productId: string) => Boolean;
+  isProductInCart: (productId: string) => Boolean;
   addCartProduct: (product: ICartProduct) => void;
   removeCartItem: (productId: string | number) => void;
   decreaseQuantity: (productId: string | number) => void;

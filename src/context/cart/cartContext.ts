@@ -16,7 +16,7 @@ export const initialState: IState = {
   addCartProduct: () => {},
   removeCartItem: () => {},
   decreaseQuantity: () => {},
-  productInCart: () => true,
+  isProductInCart: () => true,
 };
 
 const CartContext = createContext<IState>(initialState);

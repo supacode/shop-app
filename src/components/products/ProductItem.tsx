@@ -5,7 +5,7 @@ import CartContext from '../../context/cart/cartContext';
 import { IProduct } from '../../context/interfaces/product-interfaces';
 
 const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
-  const { addCartProduct, productInCart, removeCartItem } = useContext(
+  const { addCartProduct, isProductInCart, removeCartItem } = useContext(
     CartContext,
   );
 
@@ -25,7 +25,7 @@ const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
         <span className="product__price--normal">${product.price}</span>
       </p>
 
-      {productInCart(product.id) ? (
+      {isProductInCart(product.id) ? (
         <button
           className="product__cta"
           onClick={() => removeCartItem(product.id)}
