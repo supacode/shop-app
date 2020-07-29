@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import CartContext from '../../context/cart/cartContext';
 
 const MainNav: React.FC = () => {
-  const { cartProducts } = useContext(CartContext);
+  const { products } = useContext(CartContext);
 
   return (
     <nav className="main-header__nav">
@@ -35,9 +35,9 @@ const MainNav: React.FC = () => {
         </li>
         <li>
           <Link to="/cart" className="main-header__nav--cart-icon">
-            {cartProducts.length > 0 && (
+            {products.length > 0 && (
               <span className="main-header__nav--cart-count">
-                {cartProducts.length}
+                {products.length}
               </span>
             )}
             <svg width="33px" height="33px" viewBox="0 0 512 512">

@@ -1,9 +1,12 @@
 import { IProduct } from './product-interfaces';
 
 export interface ICartProduct {
+  name: string;
   id: string | number;
   count: number;
   slug: string;
+  coverImage: string;
+  price: number;
 }
 
 export interface ICart {
@@ -24,10 +27,8 @@ export interface ICartItem extends IProduct {
 }
 
 export interface IState {
-  cartProducts: ICartProduct[];
-  loadedProducts: ICartItem[];
+  products: ICartProduct[];
   loading: boolean;
-  loadProducts?: () => void;
   addCartProduct: (productId: string | number, slug: string) => void;
   removeCartItem: (productId: string | number) => void;
   decreaseQuantity: (productId: string | number) => void;
