@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import { IState } from '../interfaces/cart-interfaces';
+import { ICart } from '../interfaces/cart-interfaces';
 
 let initialCart: [] = [];
 
@@ -10,7 +10,7 @@ if (savedCart) {
   initialCart = JSON.parse(savedCart);
 }
 
-export const initialState: IState = {
+export const initialState: ICart = {
   loading: true,
   products: initialCart || [],
   addCartProduct: () => {},
@@ -19,6 +19,6 @@ export const initialState: IState = {
   isProductInCart: () => true,
 };
 
-const CartContext = createContext<IState>(initialState);
+const CartContext = createContext<ICart>(initialState);
 
 export default CartContext;

@@ -4,19 +4,12 @@ export interface ICartProduct extends IProduct {
   count: number;
 }
 
-export interface ICart {
-  products: ICartProduct[];
-  addCartProduct(): void;
-  removeProduct(): void;
-  clearCart(): void;
-}
-
 export interface IAction {
   type: string;
   payload?: any;
 }
 
-export interface IState {
+export interface ICart {
   products: ICartProduct[];
   loading: boolean;
   isProductInCart: (productId: string) => Boolean;

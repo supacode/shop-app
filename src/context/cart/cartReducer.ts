@@ -1,4 +1,4 @@
-import { IAction, IState } from '../interfaces/cart-interfaces';
+import { IAction, ICart } from '../interfaces/cart-interfaces';
 
 import {
   ADD_TO_CART,
@@ -8,7 +8,7 @@ import {
   SET_LOADING,
 } from '../types';
 
-const cartReducer = (state: IState, action: IAction): IState => {
+const cartReducer = (state: ICart, action: IAction): ICart => {
   switch (action.type) {
     case ADD_TO_CART:
       if (state.products.find((prod) => prod.id === action.payload.id)) {
