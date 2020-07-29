@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import CartContext from '../../context/cart/cartContext';
 
@@ -10,7 +10,7 @@ const MainNav: React.FC = () => {
     <nav className="main-header__nav">
       <ul>
         <li>
-          <Link to="/login">
+          <NavLink to="/login" activeClassName="main-header__nav--active">
             <svg width="33px" height="33px" viewBox="0 0 512 512">
               <title>My Account</title>
               <path
@@ -31,10 +31,14 @@ const MainNav: React.FC = () => {
                 }}
               />
             </svg>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/cart" className="main-header__nav--cart-icon">
+          <NavLink
+            to="/cart"
+            className="main-header__nav--cart-icon"
+            activeClassName="main-header__nav--active"
+          >
             {products.length > 0 && (
               <span className="main-header__nav--cart-count">
                 {products.length}
@@ -83,7 +87,7 @@ const MainNav: React.FC = () => {
                 }}
               />
             </svg>
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </nav>

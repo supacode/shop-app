@@ -55,7 +55,16 @@ const ProductPage: React.FC = () => {
               </p>
 
               <button
-                onClick={() => addCartProduct(product.id, product.slug)}
+                onClick={() =>
+                  addCartProduct({
+                    count: 0,
+                    coverImage: product.coverImage,
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    slug: product.slug,
+                  })
+                }
                 className="product-detail__add-to-cart"
               >
                 <svg width="32px" height="32px" viewBox="0 0 512 512">

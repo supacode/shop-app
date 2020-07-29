@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { ICartItem } from '../../context/interfaces/cart-interfaces';
+import { ICartProduct } from '../../context/interfaces/cart-interfaces';
 import CartContext from '../../context/cart/cartContext';
 
 const CartItem: React.FC<{
-  product: ICartItem;
+  product: ICartProduct;
 }> = ({ product }) => {
   const { addCartProduct, removeCartItem, decreaseQuantity } = useContext(
     CartContext,
@@ -42,7 +42,7 @@ const CartItem: React.FC<{
           onChange={() => {}}
         />
         <button
-          onClick={() => addCartProduct(product.id, product.slug)}
+          onClick={() => addCartProduct(product)}
           type="button"
           className="cart-item__quantity--add"
         >

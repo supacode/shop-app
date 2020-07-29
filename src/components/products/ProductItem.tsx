@@ -26,7 +26,14 @@ const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
       <button
         className="product__add-cart"
         onClick={() =>
-          addCartProduct && addCartProduct(product.id, product.slug)
+          addCartProduct({
+            count: 1,
+            coverImage: product.coverImage,
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            slug: product.slug,
+          })
         }
       >
         <svg width="32px" height="32px" viewBox="0 0 512 512">

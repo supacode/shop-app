@@ -69,5 +69,15 @@
         }
       }
     }
+
+    &--active {
+      svg {
+        path,
+        polyline,
+        circle {
+          stroke: $accent !important;
+        }
+      }
+    }
   }
 }

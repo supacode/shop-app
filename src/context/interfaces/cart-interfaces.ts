@@ -1,12 +1,7 @@
 import { IProduct } from './product-interfaces';
 
-export interface ICartProduct {
-  name: string;
-  id: string | number;
+export interface ICartProduct extends IProduct {
   count: number;
-  slug: string;
-  coverImage: string;
-  price: number;
 }
 
 export interface ICart {
@@ -21,15 +16,10 @@ export interface IAction {
   payload?: any;
 }
 
-export interface ICartItem extends IProduct {
-  count: number;
-  slug: string;
-}
-
 export interface IState {
   products: ICartProduct[];
   loading: boolean;
-  addCartProduct: (productId: string | number, slug: string) => void;
+  addCartProduct: (product: ICartProduct) => void;
   removeCartItem: (productId: string | number) => void;
   decreaseQuantity: (productId: string | number) => void;
 }

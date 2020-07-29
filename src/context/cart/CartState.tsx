@@ -8,6 +8,7 @@ import {
   REMOVE_ITEM_CART,
   DECREASE_PRODUCT_QUANTITY,
 } from '../types';
+import { ICartProduct } from '../interfaces/cart-interfaces';
 
 const CartState: React.FC = ({ children }) => {
   // eslint-disable-next-line
@@ -17,8 +18,8 @@ const CartState: React.FC = ({ children }) => {
     // eslint-disable-next-line
   }, []);
 
-  const addCartProduct = (productId: number | string, slug: string) => {
-    dispatch({ type: ADD_TO_CART, payload: { id: productId, slug } });
+  const addCartProduct = (product: ICartProduct) => {
+    dispatch({ type: ADD_TO_CART, payload: product });
   };
 
   const removeCartItem = (productId: number | string) => {
