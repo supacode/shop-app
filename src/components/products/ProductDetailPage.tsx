@@ -7,7 +7,7 @@ import CartContext from '../../context/cart/cartContext';
 
 const ProductPage: React.FC = () => {
   const { getProduct, loading, product } = useContext(ProductContext);
-  const { isProductInCart, addCartProduct, removeCartItem } = useContext(
+  const { isProductInCart, addCartProduct, removeCartProduct } = useContext(
     CartContext,
   );
 
@@ -59,7 +59,7 @@ const ProductPage: React.FC = () => {
               {isProductInCart(product.id) ? (
                 <button
                   className="product-detail__cta"
-                  onClick={() => removeCartItem(product.id)}
+                  onClick={() => removeCartProduct(product.id)}
                 >
                   Remove Product
                 </button>

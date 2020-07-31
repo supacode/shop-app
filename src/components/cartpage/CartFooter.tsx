@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { ICartProduct } from '../../context/interfaces/cart-interfaces';
 
-const CartFooter: React.FC<{ products: ICartProduct[] }> = ({ products }) => {
+const CartFooter: React.FC<{ subTotal: number }> = ({ subTotal }) => {
   return (
     <div className="cart__footer">
       <p className="cart__footer--to-home">
@@ -42,7 +42,7 @@ const CartFooter: React.FC<{ products: ICartProduct[] }> = ({ products }) => {
         </Link>
       </p>
 
-      {products.length > 0 && (
+      {subTotal && (
         <Fragment>
           <p>
             <button className="cart__footer--checkout-btn">
@@ -71,7 +71,7 @@ const CartFooter: React.FC<{ products: ICartProduct[] }> = ({ products }) => {
             </button>
           </p>
           <p className="cart__footer--subtotal">
-            Subtotal: <span>$</span>
+            Subtotal: <span>{subTotal}</span>
           </p>
         </Fragment>
       )}

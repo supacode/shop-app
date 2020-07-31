@@ -16,6 +16,5 @@ const Spinner: React.FC<{
   );
 };
 
-Spinner.propTypes = {};
 
 export default Spinner;

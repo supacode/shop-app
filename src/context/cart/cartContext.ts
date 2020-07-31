@@ -14,7 +14,7 @@ export const initialState: ICart = {
   loading: true,
   products: initialCart || [],
   addCartProduct: () => {},
-  removeCartItem: () => {},
+  removeCartProduct: () => {},
   decreaseQuantity: () => {},
   isProductInCart: () => true,
 };

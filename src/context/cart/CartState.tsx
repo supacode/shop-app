@@ -22,7 +22,7 @@ const CartState: React.FC = ({ children }) => {
     dispatch({ type: ADD_TO_CART, payload: product });
   };
 
-  const removeCartItem = (productId: number | string) => {
+  const removeCartProduct = (productId: number | string) => {
     dispatch({ type: REMOVE_ITEM_CART, payload: productId });
   };
 
@@ -42,7 +42,7 @@ const CartState: React.FC = ({ children }) => {
         products: state.products,
         isProductInCart,
         addCartProduct,
-        removeCartItem,
+        removeCartProduct,
         decreaseQuantity,
       }}
     >

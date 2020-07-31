@@ -7,7 +7,7 @@ import CartContext from '../../context/cart/cartContext';
 const CartItem: React.FC<{
   product: ICartProduct;
 }> = ({ product }) => {
-  const { addCartProduct, removeCartItem, decreaseQuantity } = useContext(
+  const { addCartProduct, removeCartProduct, decreaseQuantity } = useContext(
     CartContext,
   );
 
@@ -51,7 +51,7 @@ const CartItem: React.FC<{
       </div>
       <div className="cart-item__price">${product.price * product.count}</div>
       <button
-        onClick={() => removeCartItem(product.id)}
+        onClick={() => removeCartProduct(product.id)}
         className="cart-item__remove"
       >
         &times;
