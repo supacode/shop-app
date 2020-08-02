@@ -72,6 +72,15 @@
       overflow-x: scroll;
       place-items: center;
       padding: 1rem 0;
+      &::-webkit-scrollbar {
+        height: 5px;
+        &-thumb {
+          background: #8f8f8f;
+        }
+        &-track {
+          background: #ccc;
+        }
+      }
     }
 
     &--thumb {

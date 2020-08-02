@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { ICartProduct } from '../../context/interfaces/cart-interfaces';
 
 const CartFooter: React.FC<{ subTotal: number }> = ({ subTotal }) => {
   return (
