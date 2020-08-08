@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, Fragment } from 'react';
+import React, { useContext, useEffect, Fragment, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import ProductContext from '../../context/product/productContext';
@@ -12,6 +12,12 @@ const ProductPage: React.FC = () => {
   );
 
   const slug = useParams<{ slug: string }>().slug;
+
+  const [productCoverImage, setProductCoverImage] = useState('');
+
+  const changeDisplayPicture = (image: string): void => {
+    setProductCoverImage(image);
+  };
 
   useEffect(() => {
     getProduct(slug);
@@ -30,7 +36,11 @@ const ProductPage: React.FC = () => {
               <div className="product-detail__preview--image">
                 <img
                   alt={product.name}
-                  src={`http://localhost:5000/images/products/${product.coverImage}`}
+                  src={
+                    productCoverImage
+                      ? `http://localhost:5000/images/products/${productCoverImage}`
+                      : `http://localhost:5000/images/products/${product.coverImage}`
+                  }
                 />
               </div>
 
@@ -38,6 +48,8 @@ const ProductPage: React.FC = () => {
                 {product.images?.map((image) => (
                   <div
                     className="product-detail__preview--thumb"
+                    key={image}
+                    onClick={() => changeDisplayPicture(image)}
                     style={{
                       backgroundImage: `url(http://localhost:5000/images/products/${image})`,
                     }}
