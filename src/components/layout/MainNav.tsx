@@ -41,7 +41,7 @@ const MainNav: React.FC = () => {
           >
             {products.length > 0 && (
               <span className="main-header__nav--cart-count">
-                {products.length}
+                {products.reduce((inc, { count }) => count + inc, 0)}
               </span>
             )}
             <svg width="33px" height="33px" viewBox="0 0 512 512">
