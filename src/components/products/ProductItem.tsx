@@ -12,10 +12,7 @@ const ProductItem: React.FC<{ product: IProduct }> = ({ product }) => {
   return (
     <div className="product">
       <figure>
-        <img
-          src={`http://localhost:5000/images/products/${product.coverImage}`}
-          alt="Product"
-        />
+        <img src={product.coverImage} alt="Product" />
 
         <Link to={`/products/${product.slug}`}>
           <figcaption>{product.name}</figcaption>

@@ -15,7 +15,7 @@ const ProductPage: React.FC = () => {
 
   const [productCoverImage, setProductCoverImage] = useState('');
 
-  const changeDisplayPicture = (image: string): void => {
+  const changeDisplayPicture = (image: string) => {
     setProductCoverImage(image);
   };
 
@@ -37,23 +37,28 @@ const ProductPage: React.FC = () => {
                 <img
                   alt={product.name}
                   src={
-                    productCoverImage
-                      ? `http://localhost:5000/images/products/${productCoverImage}`
-                      : `http://localhost:5000/images/products/${product.coverImage}`
+                    productCoverImage ? productCoverImage : product.coverImage
                   }
                 />
               </div>
 
               <div className="product-detail__preview--thumbnails">
                 {product.images?.map((image) => (
-                  <div
-                    className="product-detail__preview--thumb"
+                  <button
                     key={image}
                     onClick={() => changeDisplayPicture(image)}
-                    style={{
-                      backgroundImage: `url(http://localhost:5000/images/products/${image})`,
-                    }}
-                  ></div>
+                  >
+                    <div
+                      className={
+                        productCoverImage === image
+                          ? 'product-detail__preview--thumb product-detail__preview--thumb--active'
+                          : 'product-detail__preview--thumb'
+                      }
+                      style={{
+                        backgroundImage: `url(${image})`,
+                      }}
+                    ></div>
+                  </button>
                 ))}
               </div>
             </div>
