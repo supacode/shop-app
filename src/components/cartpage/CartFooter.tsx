@@ -70,7 +70,7 @@ const CartFooter: React.FC<{ subTotal: number }> = ({ subTotal }) => {
             </button>
           </p>
           <p className="cart__footer--subtotal">
-            Subtotal: <span>{subTotal}</span>
+            Subtotal: <span>{`$${subTotal}`}</span>
           </p>
         </Fragment>
       )}

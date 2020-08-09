@@ -12,6 +12,7 @@ export interface IAction {
 export interface ICart {
   products: ICartProduct[];
   loading: boolean;
+  subTotal: number;
   isProductInCart: (productId: string) => boolean;
   addCartProduct: (product: ICartProduct) => void;
   removeCartProduct: (productId: string | number) => void;

@@ -12,6 +12,7 @@ if (savedCart) {
 
 export const initialState: ICart = {
   loading: false,
+  subTotal: 0,
   products: initialCart || [],
   addCartProduct: () => {},
   removeCartProduct: () => {},

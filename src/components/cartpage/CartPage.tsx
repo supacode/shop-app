@@ -6,7 +6,7 @@ import CartContext from '../../context/cart/cartContext';
 
 const CartPage: React.FC = () => {
   // eslint-disable-next-line
-  const { products } = useContext(CartContext);
+  const { products, subTotal } = useContext(CartContext);
 
   return (
     <div className="cart">
@@ -15,7 +15,7 @@ const CartPage: React.FC = () => {
           <CartItem product={product} key={product.id} />
         ))}
 
-        <CartFooter subTotal={22} />
+        <CartFooter subTotal={subTotal} />
       </div>
     </div>
   );

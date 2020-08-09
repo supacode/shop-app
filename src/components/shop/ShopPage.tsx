@@ -11,6 +11,7 @@ const ShopPage: React.FC = () => {
 
   useEffect(() => {
     getProductsShop();
+
     // eslint-disable-next-line
   }, []);
 
@@ -26,7 +27,7 @@ const ShopPage: React.FC = () => {
             {loadingShop && <Spinner text="Getting Products" />}
 
             {productsShop.map((product) => (
-              <ProductItem product={product} />
+              <ProductItem key={product.id} product={product} />
             ))}
           </div>
         </div>

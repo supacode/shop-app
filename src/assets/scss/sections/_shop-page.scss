@@ -1,5 +1,5 @@
 .banner {
-  padding: 5rem 0;
+  padding: 6rem 0;
   background: {
     image: url('../../img/slide/slide-04.jpg');
     attachment: fixed;
@@ -8,10 +8,10 @@
     position: center center;
   }
   text-align: center;
-  display: grid;
-  place-items: center;
 
   &__heading {
     font-size: 2.5rem;
+    color: $accent;
+    font-weight: 550;
   }
 }
