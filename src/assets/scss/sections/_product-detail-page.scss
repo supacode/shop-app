@@ -11,6 +11,8 @@
   &__cta {
     color: $light;
     display: flex;
+    min-height: 60px;
+    position: relative;
     align-items: center;
     font-size: 150%;
     padding: 0.8rem 1.5rem;
@@ -94,9 +96,10 @@
       background-position: center/center;
       transition: 0.4s ease-out;
       border: 1px solid #e0e0e0;
-      &--active {
-        opacity: 0.5;
-      }
+    }
+
+    &--active {
+      opacity: 0.5;
     }
   }
 }

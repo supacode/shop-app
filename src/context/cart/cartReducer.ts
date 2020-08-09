@@ -14,6 +14,7 @@ const cartReducer = (state: ICart, action: IAction): ICart => {
       if (state.products.find((prod) => prod.id === action.payload.id)) {
         state = {
           ...state,
+          loading: false,
           products: [
             ...state.products.map((product) => {
               if (product.id === action.payload.id) {
@@ -27,6 +28,7 @@ const cartReducer = (state: ICart, action: IAction): ICart => {
       } else {
         state = {
           ...state,
+          loading: false,
           products: [...state.products, { ...action.payload, count: 1 }],
         };
       }

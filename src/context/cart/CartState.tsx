@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect } from 'react';
+import axios from 'axios';
 
 import cartReducer from './cartReducer';
 import CartContext, { initialState } from './cartContext';
@@ -7,6 +8,7 @@ import {
   ADD_TO_CART,
   REMOVE_ITEM_CART,
   DECREASE_PRODUCT_QUANTITY,
+  SET_LOADING,
 } from '../types';
 import { ICartProduct } from '../interfaces/cart-interfaces';
 
@@ -18,8 +20,14 @@ const CartState: React.FC = ({ children }) => {
     // eslint-disable-next-line
   }, []);
 
-  const addCartProduct = (product: ICartProduct) => {
-    dispatch({ type: ADD_TO_CART, payload: product });
+  const addCartProduct = async (product: ICartProduct) => {
+    dispatch({ type: SET_LOADING, payload: true });
+    try {
+      const res = await axios.get(`/products/${product.slug}`);
+      dispatch({ type: ADD_TO_CART, payload: res.data.product });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const removeCartProduct = (productId: number | string) => {
