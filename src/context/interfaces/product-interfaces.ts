@@ -19,7 +19,8 @@ export interface IAction {
 export interface IState {
   productsHome: IProduct[];
   productsShop: IProduct[];
-  loading: boolean;
+  loadingOne: boolean;
+  loadingHome: boolean;
   product: IProduct;
   getProductsHome: () => void;
   getProduct: (slug: string) => void;

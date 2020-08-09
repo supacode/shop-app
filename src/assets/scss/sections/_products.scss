@@ -1,4 +1,7 @@
 .products {
+  position: relative;
+  min-height: 25rem;
+
   &__category {
     max-width: $page-width;
     margin: 1.5rem auto 1rem;

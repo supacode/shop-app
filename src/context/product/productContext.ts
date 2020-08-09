@@ -5,7 +5,8 @@ import { IState } from '../interfaces/product-interfaces';
 export const initialState: IState = {
   productsHome: [],
   productsShop: [],
-  loading: true,
+  loadingOne: true,
+  loadingHome: true,
   getProductsHome: () => {},
   getProduct: () => {},
   product: {

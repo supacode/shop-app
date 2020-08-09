@@ -10,7 +10,7 @@ import MainHeader from './components/layout/MainHeader';
 import Newsletter from './components/layout/Newsletter';
 import Footer from './components/layout/Footer';
 import Hero from './components/hero/Hero';
-import Products from './components/products/Products';
+import Products from './components/products/ProductHome';
 import RegisterPage from './components/auth/RegisterPage';
 import LoginForm from './components/auth/LoginPage';
 import ForgotPassword from './components/auth/ForgotPasswordPage';

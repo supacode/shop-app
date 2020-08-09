@@ -17,7 +17,6 @@ const ProductCTA: React.FC<{ product: IProduct; parentClass: string }> = ({
 
   return (
     <button
-      //   className="product__cta "
       className={parentClass}
       disabled={loading}
       onClick={() =>

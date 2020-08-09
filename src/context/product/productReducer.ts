@@ -10,13 +10,13 @@ import {
 const productReducer = (state: IState, action: IAction): IState => {
   switch (action.type) {
     case LOADING_PRODUCT:
-      state = { ...state, loading: true };
+      state = { ...state, loadingOne: true };
       return state;
     case GET_PRODUCT:
-      state = { ...state, product: action.payload, loading: false };
+      state = { ...state, product: action.payload, loadingOne: false };
       return state;
     case GET_HOME_PRODUCTS:
-      state = { ...state, productsHome: action.payload };
+      state = { ...state, productsHome: action.payload, loadingHome: false };
       return state;
     case GET_SHOP_PRODUCTS:
       state = { ...state, productsShop: action.payload };

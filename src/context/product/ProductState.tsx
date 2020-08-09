@@ -36,7 +36,8 @@ const ProductState: React.FC = ({ children }) => {
       value={{
         productsHome: state.productsHome,
         productsShop: state.productsShop,
-        loading: state.loading,
+        loadingOne: state.loadingOne,
+        loadingHome: state.loadingHome,
         product: state.product,
         getProductsHome,
         getProduct,

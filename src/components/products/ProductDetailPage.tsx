@@ -6,7 +6,7 @@ import Spinner from '../layout/Spinner';
 import ProductCTA from './ProductCTA';
 
 const ProductPage: React.FC = () => {
-  const { getProduct, loading, product } = useContext(ProductContext);
+  const { getProduct, loadingOne, product } = useContext(ProductContext);
 
   const slug = useParams<{ slug: string }>().slug;
 
@@ -26,9 +26,9 @@ const ProductPage: React.FC = () => {
     <div className="product-detail">
       <div className="row">
         {/*  Display spinner if product is loading*/}
-        {loading && <Spinner text="Loading Product" />}
+        {loadingOne && <Spinner text="Getting Product" />}
         {/*  */}
-        {!loading && product.id && (
+        {!loadingOne && product.id && (
           <Fragment>
             <div className="product-detail__preview">
               <div className="product-detail__preview--image">
