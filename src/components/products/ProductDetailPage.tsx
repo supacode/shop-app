@@ -3,16 +3,10 @@ import { useParams } from 'react-router-dom';
 
 import ProductContext from '../../context/product/productContext';
 import Spinner from '../layout/Spinner';
-import CartContext from '../../context/cart/cartContext';
+import ProductCTA from './ProductCTA';
 
 const ProductPage: React.FC = () => {
   const { getProduct, loading, product } = useContext(ProductContext);
-  const {
-    loading: addingProduct,
-    isProductInCart,
-    addCartProduct,
-    removeCartProduct,
-  } = useContext(CartContext);
 
   const slug = useParams<{ slug: string }>().slug;
 
@@ -76,89 +70,8 @@ const ProductPage: React.FC = () => {
               <p className="product-detail__content--description">
                 {product.description}
               </p>
-              <button
-                className="product-detail__cta"
-                disabled={addingProduct}
-                onClick={() =>
-                  isProductInCart(product.id)
-                    ? removeCartProduct(product.id)
-                    : addCartProduct({
-                        count: 0,
-                        coverImage: product.coverImage,
-                        id: product.id,
-                        name: product.name,
-                        price: product.price,
-                        slug: product.slug,
-                      })
-                }
-              >
-                {addingProduct && (
-                  <Spinner
-                    strokeWidth={4}
-                    textColor="#fff"
-                    size={25}
-                    color="#fff"
-                  />
-                )}
 
-                <div className="product-detail__cta--inner">
-                  {/* Display spinner while adding product */}
-                  {!addingProduct && (
-                    <svg width="32px" height="32px" viewBox="0 0 512 512">
-                      <circle
-                        cx="176"
-                        cy="416"
-                        r="16"
-                        style={{
-                          fill: 'none',
-                          strokeLinecap: 'round',
-                          strokeLinejoin: 'round',
-                          strokeWidth: '32px',
-                        }}
-                      />
-                      <circle
-                        cx="400"
-                        cy="416"
-                        r="16"
-                        style={{
-                          fill: 'none',
-                          strokeLinecap: 'round',
-                          strokeLinejoin: 'round',
-                          strokeWidth: '32px',
-                        }}
-                      />
-                      <polyline
-                        points="48 80 112 80 160 352 416 352"
-                        style={{
-                          fill: 'none',
-                          strokeLinecap: 'round',
-                          strokeLinejoin: 'round',
-                          strokeWidth: '32px',
-                        }}
-                      />
-                      <path
-                        d="M160,288H409.44a8,8,0,0,0,7.85-6.43l28.8-144a8,8,0,0,0-7.85-9.57H128"
-                        style={{
-                          fill: 'none',
-                          strokeLinecap: 'round',
-                          strokeLinejoin: 'round',
-                          strokeWidth: '32px',
-                        }}
-                      />
-                    </svg>
-                  )}
-
-                  {/* Add product to text icon and text */}
-                  {!addingProduct && !isProductInCart(product.id) && (
-                    <span>Add to Cart</span>
-                  )}
-
-                  {/* Remove from cart icon and text */}
-                  {!addingProduct && isProductInCart(product.id) && (
-                    <span>Remove</span>
-                  )}
-                </div>
-              </button>
+              <ProductCTA parentClass="product-detail__cta" product={product} />
             </div>
           </Fragment>
         )}
