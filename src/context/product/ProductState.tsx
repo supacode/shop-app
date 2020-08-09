@@ -3,21 +3,16 @@ import axios from 'axios';
 
 import productReducer from './productReducer';
 import ProductContext, { initialState } from './productContext';
-import { GET_HOME_PRODUCTS, GET_PRODUCT, LOADING_PRODUCT } from '../types';
+import {
+  GET_HOME_PRODUCTS,
+  GET_PRODUCT,
+  LOADING_PRODUCT,
+  GET_SHOP_PRODUCTS,
+} from '../types';
 
 const ProductState: React.FC = ({ children }) => {
   // eslint-disable-next-line
   const [state, dispatch] = useReducer(productReducer, initialState);
-
-  const getProductsHome = async () => {
-    try {
-      const res = await axios.get('/products');
-
-      dispatch({ type: GET_HOME_PRODUCTS, payload: res.data.products });
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   const getProduct = async (slug: string) => {
     try {
@@ -31,6 +26,25 @@ const ProductState: React.FC = ({ children }) => {
     }
   };
 
+  const getProductsHome = async () => {
+    try {
+      const res = await axios.get('/products');
+
+      dispatch({ type: GET_HOME_PRODUCTS, payload: res.data.products });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getProductsShop = async () => {
+    try {
+      const res = await axios.get('/products');
+      dispatch({ type: GET_SHOP_PRODUCTS, payload: res.data.products });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <ProductContext.Provider
       value={{
@@ -38,9 +52,11 @@ const ProductState: React.FC = ({ children }) => {
         productsShop: state.productsShop,
         loadingOne: state.loadingOne,
         loadingHome: state.loadingHome,
+        loadingShop: state.loadingShop,
         product: state.product,
-        getProductsHome,
         getProduct,
+        getProductsHome,
+        getProductsShop,
       }}
     >
       {children}

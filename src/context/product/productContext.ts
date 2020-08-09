@@ -7,8 +7,10 @@ export const initialState: IState = {
   productsShop: [],
   loadingOne: true,
   loadingHome: true,
-  getProductsHome: () => {},
+  loadingShop: true,
   getProduct: () => {},
+  getProductsHome: () => {},
+  getProductsShop: () => {},
   product: {
     coverImage: '',
     id: '',

@@ -19,7 +19,7 @@ const productReducer = (state: IState, action: IAction): IState => {
       state = { ...state, productsHome: action.payload, loadingHome: false };
       return state;
     case GET_SHOP_PRODUCTS:
-      state = { ...state, productsShop: action.payload };
+      state = { ...state, productsShop: action.payload, loadingShop: false };
       return state;
     default:
       return state;

@@ -21,8 +21,10 @@ export interface IState {
   productsShop: IProduct[];
   loadingOne: boolean;
   loadingHome: boolean;
+  loadingShop: boolean;
   product: IProduct;
   getProductsHome: () => void;
+  getProductsShop: () => void;
   getProduct: (slug: string) => void;
   loadingProduct?: () => void;
 }

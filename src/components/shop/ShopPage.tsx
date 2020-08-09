@@ -1,7 +1,19 @@
-import React, { Fragment } from 'react';
-// import ProductItem from '../products/ProductItem';
+import React, { Fragment, useContext, useEffect } from 'react';
+
+import ProductContext from '../../context/product/productContext';
+import ProductItem from '../products/ProductItem';
+import Spinner from '../layout/Spinner';
 
 const ShopPage: React.FC = () => {
+  const { getProductsShop, productsShop, loadingShop } = useContext(
+    ProductContext,
+  );
+
+  useEffect(() => {
+    getProductsShop();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <Fragment>
       <div className="banner">
@@ -11,9 +23,11 @@ const ShopPage: React.FC = () => {
       <div className="shop">
         <div className="products">
           <div className="row">
-            {/* <ProductItem />
-            <ProductItem />
-            <ProductItem /> */}
+            {loadingShop && <Spinner text="Getting Products" />}
+
+            {productsShop.map((product) => (
+              <ProductItem product={product} />
+            ))}
           </div>
         </div>
       </div>
