@@ -92,7 +92,6 @@ const ProductPage: React.FC = () => {
                       })
                 }
               >
-                {/* Display spinner while adding product */}
                 {addingProduct && (
                   <Spinner
                     strokeWidth={4}
@@ -102,9 +101,9 @@ const ProductPage: React.FC = () => {
                   />
                 )}
 
-                {/* Add product to text icon and text */}
-                {!addingProduct && !isProductInCart(product.id) && (
-                  <Fragment>
+                <div className="product-detail__cta--inner">
+                  {/* Display spinner while adding product */}
+                  {!addingProduct && (
                     <svg width="32px" height="32px" viewBox="0 0 512 512">
                       <circle
                         cx="176"
@@ -147,14 +146,18 @@ const ProductPage: React.FC = () => {
                         }}
                       />
                     </svg>
-                    <span>Add to Cart</span>
-                  </Fragment>
-                )}
+                  )}
 
-                {/* Remove from cart icon and text */}
-                {!addingProduct && isProductInCart(product.id) && (
-                  <span>Remove Product</span>
-                )}
+                  {/* Add product to text icon and text */}
+                  {!addingProduct && !isProductInCart(product.id) && (
+                    <span>Add to Cart</span>
+                  )}
+
+                  {/* Remove from cart icon and text */}
+                  {!addingProduct && isProductInCart(product.id) && (
+                    <span>Remove</span>
+                  )}
+                </div>
               </button>
             </div>
           </Fragment>

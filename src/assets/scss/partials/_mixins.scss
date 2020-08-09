@@ -6,4 +6,8 @@
   &:focus {
     background: darken($color: $accent, $amount: 20);
   }
+
+  &:disabled {
+    background: #585858;
+  }
 }
