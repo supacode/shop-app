@@ -49,7 +49,13 @@ const CartItem: React.FC<{
           +
         </button>
       </div>
-      <div className="cart-item__price">${product.price * product.count}</div>
+      <div>
+        <p className="cart-item__price">${product.price}</p>
+        <p>
+          {product.count > 1 &&
+            `x${product.count} = $${product.price * product.count}`}
+        </p>
+      </div>
       <button
         onClick={() => removeCartProduct(product.id)}
         className="cart-item__remove"

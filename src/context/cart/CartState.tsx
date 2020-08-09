@@ -48,7 +48,10 @@ const CartState: React.FC = ({ children }) => {
       value={{
         loading: state.loading,
         products: state.products,
-        subTotal: state.products.reduce((acc, { price }) => acc + price, 0),
+        subTotal: state.products.reduce(
+          (acc, { price, count }) => acc + price * count,
+          0,
+        ),
         isProductInCart,
         addCartProduct,
         removeCartProduct,
