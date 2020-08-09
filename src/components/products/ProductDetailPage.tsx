@@ -92,8 +92,17 @@ const ProductPage: React.FC = () => {
                       })
                 }
               >
-                {addingProduct && <Spinner />}
+                {/* Display spinner while adding product */}
+                {addingProduct && (
+                  <Spinner
+                    strokeWidth={4}
+                    textColor="#fff"
+                    size={25}
+                    color="#fff"
+                  />
+                )}
 
+                {/* Add product to text icon and text */}
                 {!addingProduct && !isProductInCart(product.id) && (
                   <Fragment>
                     <svg width="32px" height="32px" viewBox="0 0 512 512">
@@ -142,6 +151,7 @@ const ProductPage: React.FC = () => {
                   </Fragment>
                 )}
 
+                {/* Remove from cart icon and text */}
                 {!addingProduct && isProductInCart(product.id) && (
                   <span>Remove Product</span>
                 )}
