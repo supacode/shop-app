@@ -13,7 +13,6 @@ import {
 import { ICartProduct } from '../interfaces/cart-interfaces';
 
 const CartState: React.FC = ({ children }) => {
-  // eslint-disable-next-line
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
   useEffect(() => {
@@ -21,7 +20,11 @@ const CartState: React.FC = ({ children }) => {
   }, []);
 
   const addCartProduct = async (product: ICartProduct) => {
-    dispatch({ type: SET_LOADING, payload: true });
+    dispatch({
+      type: SET_LOADING,
+      payload: { productId: product.id, loading: true },
+    });
+
     try {
       const res = await axios.get(`/products/${product.slug}`);
       dispatch({ type: ADD_TO_CART, payload: res.data.product });
@@ -43,15 +46,21 @@ const CartState: React.FC = ({ children }) => {
     return false;
   };
 
+  const isAddingToCart = (productId: string): boolean => {
+    return state.loading && state.productsToAdd.includes(productId);
+  };
+
   return (
     <CartContext.Provider
       value={{
         loading: state.loading,
         products: state.products,
+        productsToAdd: state.productsToAdd,
         subTotal: state.products.reduce(
           (acc, { price, count }) => acc + price * count,
           0,
         ),
+        isAddingToCart,
         isProductInCart,
         addCartProduct,
         removeCartProduct,

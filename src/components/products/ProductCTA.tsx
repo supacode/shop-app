@@ -10,15 +10,15 @@ const ProductCTA: React.FC<{ product: IProduct; parentClass: string }> = ({
 }) => {
   const {
     addCartProduct,
-    loading,
     isProductInCart,
     removeCartProduct,
+    isAddingToCart,
   } = useContext(CartContext);
 
   return (
     <button
       className={parentClass}
-      disabled={loading}
+      disabled={isAddingToCart(product.id)}
       onClick={() =>
         isProductInCart(product.id)
           ? removeCartProduct(product.id)
@@ -32,12 +32,12 @@ const ProductCTA: React.FC<{ product: IProduct; parentClass: string }> = ({
             })
       }
     >
-      {loading && (
+      {isAddingToCart(product.id) && (
         <Spinner strokeWidth={4} textColor="#fff" size={25} color="#fff" />
       )}
 
       <div className={`${parentClass}--inner`}>
-        {!loading && (
+        {!isAddingToCart(product.id) && (
           <svg width="32px" height="32px" viewBox="0 0 512 512">
             <circle
               cx="176"
@@ -82,9 +82,13 @@ const ProductCTA: React.FC<{ product: IProduct; parentClass: string }> = ({
           </svg>
         )}
 
-        {!loading && !isProductInCart(product.id) && <span>Add to Cart</span>}
+        {!isAddingToCart(product.id) && !isProductInCart(product.id) && (
+          <span>Add to Cart</span>
+        )}
 
-        {!loading && isProductInCart(product.id) && <span>Remove</span>}
+        {!isAddingToCart(product.id) && isProductInCart(product.id) && (
+          <span>Remove</span>
+        )}
       </div>
     </button>
   );

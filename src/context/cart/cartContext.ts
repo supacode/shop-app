@@ -13,11 +13,13 @@ if (savedCart) {
 export const initialState: ICart = {
   loading: false,
   subTotal: 0,
+  productsToAdd: [],
   products: initialCart || [],
   addCartProduct: () => {},
   removeCartProduct: () => {},
   decreaseQuantity: () => {},
   isProductInCart: () => true,
+  isAddingToCart: () => false,
 };
 
 const CartContext = createContext<ICart>(initialState);

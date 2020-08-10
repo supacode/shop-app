@@ -14,7 +14,6 @@ const cartReducer = (state: ICart, action: IAction): ICart => {
       if (state.products.find((prod) => prod.id === action.payload.id)) {
         state = {
           ...state,
-          loading: false,
           products: [
             ...state.products.map((product) => {
               if (product.id === action.payload.id) {
@@ -28,10 +27,17 @@ const cartReducer = (state: ICart, action: IAction): ICart => {
       } else {
         state = {
           ...state,
-          loading: false,
           products: [...state.products, { ...action.payload, count: 1 }],
         };
       }
+
+      state = {
+        ...state,
+        loading: false,
+        productsToAdd: [
+          ...state.productsToAdd.filter((prod) => prod !== action.payload.id),
+        ],
+      };
 
       localStorage.setItem('cart', JSON.stringify(state.products));
 
@@ -57,7 +63,11 @@ const cartReducer = (state: ICart, action: IAction): ICart => {
       return state;
 
     case SET_LOADING:
-      state = { ...state, loading: action.payload };
+      state = {
+        ...state,
+        loading: action.payload.loading,
+        productsToAdd: [...state.productsToAdd, action.payload.productId],
+      };
       return state;
     case REMOVE_ITEM_CART:
       state = {
