@@ -50,16 +50,21 @@ const CartState: React.FC = ({ children }) => {
     return state.loading && state.productsToAdd.includes(productId);
   };
 
+  const calculateSubTotal = (products: ICartProduct[]): number => {
+    const total = products.reduce(
+      (acc, { price, count }) => acc + price * count,
+      0,
+    );
+    return total;
+  };
+
   return (
     <CartContext.Provider
       value={{
         loading: state.loading,
         products: state.products,
         productsToAdd: state.productsToAdd,
-        subTotal: state.products.reduce(
-          (acc, { price, count }) => acc + price * count,
-          0,
-        ),
+        subTotal: calculateSubTotal(state.products),
         isAddingToCart,
         isProductInCart,
         addCartProduct,
