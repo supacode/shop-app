@@ -42,7 +42,7 @@ const CartState: React.FC = ({ children }) => {
   };
 
   const isProductInCart = (productId: string) => {
-    if (state.products.find((prod) => prod.id === productId)) return true;
+    if (state.products.find(prod => prod.id === productId)) return true;
     return false;
   };
 
@@ -50,7 +50,7 @@ const CartState: React.FC = ({ children }) => {
     return state.loading && state.productsToAdd.includes(productId);
   };
 
-  const calculateSubTotal = (products: ICartProduct[]): number => {
+  const calculateSubTotal = (products: ICartProduct[]) => {
     const total = products.reduce(
       (acc, { price, count }) => acc + price * count,
       0,
