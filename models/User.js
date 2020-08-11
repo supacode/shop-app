@@ -10,7 +10,7 @@ const userSchema = new Schema({
     unique: true,
     lowercase: true,
     required: [true, 'User must have an E-mail'],
-    validate: [validator.isEmail, 'Please specify an E-mail'],
+    validate: [validator.isEmail, 'Enter a valid E-mail'],
   },
   password: {
     type: String,
@@ -26,8 +26,7 @@ const userSchema = new Schema({
       message: 'Passwords do not match',
     },
   },
-  address: String,
-  billingAddress: String,
+  shipppingAddress: String,
 });
 
 module.exports = model('User', userSchema);
