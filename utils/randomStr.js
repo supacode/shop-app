@@ -1,5 +1,5 @@
 const randomStr = strLength => {
-  const chars = 'abcdefghijklmnopqrstuvwxyz';
+  const chars = 'abcdefghijklmnopqrstuvwxyz1234567890';
   let random = '';
 
   for (let i = 0; i < strLength; i++) {
