@@ -1,9 +1,12 @@
 const { Router } = require('express');
-const { createAccount } = require('../controllers/authController');
+
+const { createAccount, getUser } = require('../controllers/authController');
 
 const router = Router();
 
 router.post('/register', createAccount);
+
+router.route('/:id').get(getUser);
 
 const userRoutes = router;
 

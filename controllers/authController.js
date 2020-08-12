@@ -11,6 +11,18 @@ const createAccount = async (req, res, next) => {
   });
 };
 
+const getUser = async (req, res, next) => {
+  const { id } = req.params;
+
+  const user = await User.findById(id);
+
+  res.status(200).json({
+    status: 'success',
+    user,
+  });
+};
+
 module.exports = {
   createAccount,
+  getUser,
 };

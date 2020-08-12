@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcryptjs');
 const validator = require('validator');
+const transformSchema = require('../utils/transformSchema');
 
 const userSchema = new Schema({
   name: {
@@ -31,6 +32,7 @@ const userSchema = new Schema({
   shipppingAddress: String,
 });
 
+// Hash user password
 userSchema.pre('save', async function(next) {
   const user = this;
 
@@ -41,6 +43,11 @@ userSchema.pre('save', async function(next) {
 
   next();
 });
+
+// Transform user schema
+userSchema.methods.toJSON = function() {
+  return transformSchema({ schema: this, exclude: ['password'] });
+};
 
 const User = model('User', userSchema);
 module.exports = User;
