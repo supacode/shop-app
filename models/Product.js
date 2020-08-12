@@ -38,4 +38,5 @@ productSchema.pre('save', function(next) {
   next();
 });
 
-module.exports = Model('Product', productSchema);
+const Product = Model('Product', productSchema);
+module.exports = Product;

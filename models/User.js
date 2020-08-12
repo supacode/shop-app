@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const bcrypt = require('bcryptjs');
 const validator = require('validator');
 
 const userSchema = new Schema({
@@ -13,6 +14,7 @@ const userSchema = new Schema({
     validate: [validator.isEmail, 'Enter a valid E-mail'],
   },
   password: {
+    select: false,
     type: String,
     minlength: 6,
   },
@@ -29,6 +31,16 @@ const userSchema = new Schema({
   shipppingAddress: String,
 });
 
-const User = model('User', userSchema);
+userSchema.pre('save', async function(next) {
+  const user = this;
 
+  if (!user.isModified('password')) return next();
+
+  user.password = await bcrypt.hash(this.password, 12);
+  user.passwordConfirm = undefined;
+
+  next();
+});
+
+const User = model('User', userSchema);
 module.exports = User;

@@ -1,15 +1,13 @@
 const User = require('../models/User');
 
 const createAccount = async (req, res, next) => {
-  // const { email, password, passwordConfirm } = req.body;
+  const { email, password, passwordConfirm } = req.body;
 
-  // const user = await User.create({ email, password, passwordConfirm });
-
-  // console.log(user);
+  const user = await User.create({ email, password, passwordConfirm });
 
   res.status(201).json({
     status: 'success',
-    message: 'Working on route',
+    user,
   });
 };
 
