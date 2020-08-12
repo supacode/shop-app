@@ -5,6 +5,6 @@ const router = Router();
 
 router.post('/register', createAccount);
 
-const authRoutes = router;
+const userRoutes = router;
 
-module.exports = authRoutes;
+module.exports = userRoutes;

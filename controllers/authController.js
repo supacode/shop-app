@@ -1,7 +1,8 @@
 const createAccount = (req, res, next) => {
-  console.log(req.body);
-
-  next();
+  res.status(201).json({
+    status: 'success',
+    message: 'Working on route',
+  });
 };
 
 module.exports = {
