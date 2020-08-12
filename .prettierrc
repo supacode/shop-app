@@ -1,5 +1,6 @@
 {
   "singleQuote": true,
+  "arrowParens": "avoid",
   "trailingComma": "all",
-  "arrow-parens": "avoid"
+  "endOfLine": "auto"
 }

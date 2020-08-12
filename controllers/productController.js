@@ -9,10 +9,8 @@ const getProducts = (req, res, next) => {
   const products = Product.map(product => {
     return {
       ...product,
-      images: Product.map(prod => {
-        return prod.images.map(image => fileFullPath(req, image));
-      }),
       coverImage: fileFullPath(req, product.coverImage),
+      images: product.images.map(image => fileFullPath(req, image)),
     };
   });
 

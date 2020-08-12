@@ -9,7 +9,8 @@ dotenv.config({
   path: './config.env',
 });
 
-const productRoutes = require('./routes/productRoute');
+const productRoutes = require('./routes/productRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
@@ -21,5 +22,6 @@ app.use(helmet());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1/products', productRoutes);
+app.use('/api/v1/auth', authRoutes);
 
 module.exports = app;
