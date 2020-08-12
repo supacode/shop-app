@@ -1,4 +1,4 @@
-const transformSchema = (options = { schema: null, exclude: [] }) => {
+const transformModel = (options = { schema: null, exclude: [] }) => {
   const { schema, exclude } = options;
 
   const schemaObj = schema.toObject();
@@ -15,4 +15,4 @@ const transformSchema = (options = { schema: null, exclude: [] }) => {
   return schemaObj;
 };
 
-module.exports = transformSchema;
+module.exports = transformModel;
