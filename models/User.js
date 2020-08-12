@@ -29,4 +29,6 @@ const userSchema = new Schema({
   shipppingAddress: String,
 });
 
-module.exports = model('User', userSchema);
+const User = model('User', userSchema);
+
+module.exports = User;

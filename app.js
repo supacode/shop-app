@@ -6,13 +6,18 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 
 dotenv.config({
-  path: './config.env',
+  path: path.resolve('./config.env'),
 });
 
+const app = express();
+
+const databaseConnection = require('./utils/databaseConnection');
+
+// Routes
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
 
-const app = express();
+(async () => await databaseConnection())();
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
