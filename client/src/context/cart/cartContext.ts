@@ -22,6 +22,6 @@ export const initialState: ICart = {
   isAddingToCart: () => false,
 };
 
-const CartContext = createContext<ICart>(initialState);
+const CartContext = createContext(initialState);
 
 export default CartContext;

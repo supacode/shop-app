@@ -19,58 +19,61 @@ import ProductPage from './components/products/ProductDetailPage';
 import ShopPage from './components/shop/ShopPage';
 
 import './assets/scss/style.scss';
+import AuthState from './context/auth/AuthState';
 
 const App: React.FC = () => {
   return (
     <div>
-      <BrowserRouter>
-        <ProductState>
-          <CartState>
-            <MainHeader />
+      <AuthState>
+        <BrowserRouter>
+          <ProductState>
+            <CartState>
+              <MainHeader />
 
-            <Switch>
-              {/* Landing page */}
-              <Route path="/" exact>
-                <Hero />
-                <Products />
-                <Newsletter />
-              </Route>
+              <Switch>
+                {/* Landing page */}
+                <Route path="/" exact>
+                  <Hero />
+                  <Products />
+                  <Newsletter />
+                </Route>
 
-              {/* Create an account */}
-              <Route path="/register" exact>
-                <RegisterPage />
-              </Route>
+                {/* Create an account */}
+                <Route path="/register" exact>
+                  <RegisterPage />
+                </Route>
 
-              {/* Login */}
-              <Route path="/login" exact>
-                <LoginForm />
-              </Route>
+                {/* Login */}
+                <Route path="/login" exact>
+                  <LoginForm />
+                </Route>
 
-              {/* Forgot password */}
-              <Route path="/forgot-password" exact>
-                <ForgotPassword />
-              </Route>
+                {/* Forgot password */}
+                <Route path="/forgot-password" exact>
+                  <ForgotPassword />
+                </Route>
 
-              {/* Cart Page */}
-              <Route path="/cart" exact>
-                <CartPage />
-              </Route>
+                {/* Cart Page */}
+                <Route path="/cart" exact>
+                  <CartPage />
+                </Route>
 
-              {/* Product Page */}
-              <Route path="/products/:slug" exact>
-                <ProductPage />
-              </Route>
+                {/* Product Page */}
+                <Route path="/products/:slug" exact>
+                  <ProductPage />
+                </Route>
 
-              {/* Shop Page */}
-              <Route path="/shop" exact>
-                <ShopPage />
-              </Route>
-            </Switch>
+                {/* Shop Page */}
+                <Route path="/shop" exact>
+                  <ShopPage />
+                </Route>
+              </Switch>
 
-            <Footer />
-          </CartState>
-        </ProductState>
-      </BrowserRouter>
+              <Footer />
+            </CartState>
+          </ProductState>
+        </BrowserRouter>
+      </AuthState>
     </div>
   );
 };
