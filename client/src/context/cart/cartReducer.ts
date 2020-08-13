@@ -1,16 +1,10 @@
 import { IAction, ICart } from '../../interfaces/cart-interfaces';
 
-import {
-  ADD_TO_CART,
-  REMOVE_ITEM_CART,
-  DECREASE_PRODUCT_QUANTITY,
-  LOAD_PRODUCT,
-  SET_LOADING,
-} from '../types';
+import { cartTypes } from '../types';
 
 const cartReducer = (state: ICart, action: IAction): ICart => {
   switch (action.type) {
-    case ADD_TO_CART:
+    case cartTypes.ADD_TO_CART:
       if (state.products.find(prod => prod.id === action.payload.id)) {
         state = {
           ...state,
@@ -43,7 +37,7 @@ const cartReducer = (state: ICart, action: IAction): ICart => {
 
       return state;
 
-    case LOAD_PRODUCT:
+    case cartTypes.LOAD_PRODUCT:
       state = {
         ...state,
         products: [
@@ -62,14 +56,14 @@ const cartReducer = (state: ICart, action: IAction): ICart => {
 
       return state;
 
-    case SET_LOADING:
+    case cartTypes.SET_LOADING:
       state = {
         ...state,
         loading: action.payload.loading,
         productsToAdd: [...state.productsToAdd, action.payload.productId],
       };
       return state;
-    case REMOVE_ITEM_CART:
+    case cartTypes.REMOVE_ITEM_CART:
       state = {
         ...state,
         products: [
@@ -81,7 +75,7 @@ const cartReducer = (state: ICart, action: IAction): ICart => {
 
       return state;
 
-    case DECREASE_PRODUCT_QUANTITY:
+    case cartTypes.DECREASE_PRODUCT_QUANTITY:
       state = {
         ...state,
         products: [

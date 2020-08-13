@@ -4,12 +4,7 @@ import axios from 'axios';
 import cartReducer from './cartReducer';
 import CartContext, { initialState } from './cartContext';
 
-import {
-  ADD_TO_CART,
-  REMOVE_ITEM_CART,
-  DECREASE_PRODUCT_QUANTITY,
-  SET_LOADING,
-} from '../types';
+import { cartTypes } from '../types';
 import { ICartProduct } from '../../interfaces/cart-interfaces';
 
 const CartState: React.FC = ({ children }) => {
@@ -21,24 +16,24 @@ const CartState: React.FC = ({ children }) => {
 
   const addCartProduct = async (product: ICartProduct) => {
     dispatch({
-      type: SET_LOADING,
+      type: cartTypes.SET_LOADING,
       payload: { productId: product.id, loading: true },
     });
 
     try {
       const res = await axios.get(`/products/${product.slug}`);
-      dispatch({ type: ADD_TO_CART, payload: res.data.product });
+      dispatch({ type: cartTypes.ADD_TO_CART, payload: res.data.product });
     } catch (err) {
       console.log(err);
     }
   };
 
   const removeCartProduct = (productId: number | string) => {
-    dispatch({ type: REMOVE_ITEM_CART, payload: productId });
+    dispatch({ type: cartTypes.REMOVE_ITEM_CART, payload: productId });
   };
 
   const decreaseQuantity = (productId: number | string) => {
-    dispatch({ type: DECREASE_PRODUCT_QUANTITY, payload: productId });
+    dispatch({ type: cartTypes.DECREASE_PRODUCT_QUANTITY, payload: productId });
   };
 
   const isProductInCart = (productId: string) => {
