@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import Spinner from '../layout/Spinner';
 import CartContext from '../../context/cart/cartContext';
-import { IProduct } from '../../context/interfaces/product-interfaces';
+import { IProduct } from '../../interfaces/product-interfaces';
 
 const ProductCTA: React.FC<{ product: IProduct; parentClass: string }> = ({
   product,

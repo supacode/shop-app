@@ -10,7 +10,7 @@ import {
   DECREASE_PRODUCT_QUANTITY,
   SET_LOADING,
 } from '../types';
-import { ICartProduct } from '../interfaces/cart-interfaces';
+import { ICartProduct } from '../../interfaces/cart-interfaces';
 
 const CartState: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);

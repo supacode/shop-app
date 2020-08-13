@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { ICartProduct } from '../../context/interfaces/cart-interfaces';
+import { ICartProduct } from '../../interfaces/cart-interfaces';
 import CartContext from '../../context/cart/cartContext';
 
 const CartItem: React.FC<{

@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 
 import ProductContext from '../../context/product/productContext';
 import ProductItem from './ProductItem';
-import { IState } from '../../context/interfaces/product-interfaces';
+import { IState } from '../../interfaces/product-interfaces';
 import Spinner from '../layout/Spinner';
 
 const ProductsHomePage: React.FC = () => {
@@ -20,7 +20,7 @@ const ProductsHomePage: React.FC = () => {
     <div className="products">
       <div className="row">
         {loadingHome && <Spinner size={60} text="Getting Products" />}
-        {productsHome.map((product) => (
+        {productsHome.map(product => (
           <ProductItem product={product} key={product.id} />
         ))}
       </div>

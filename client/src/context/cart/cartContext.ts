@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import { ICart } from '../interfaces/cart-interfaces';
+import { ICart } from '../../interfaces/cart-interfaces';
 
 let initialCart: [] = [];
 

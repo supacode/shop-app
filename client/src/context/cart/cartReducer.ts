@@ -1,4 +1,4 @@
-import { IAction, ICart } from '../interfaces/cart-interfaces';
+import { IAction, ICart } from '../../interfaces/cart-interfaces';
 
 import {
   ADD_TO_CART,
@@ -11,11 +11,11 @@ import {
 const cartReducer = (state: ICart, action: IAction): ICart => {
   switch (action.type) {
     case ADD_TO_CART:
-      if (state.products.find((prod) => prod.id === action.payload.id)) {
+      if (state.products.find(prod => prod.id === action.payload.id)) {
         state = {
           ...state,
           products: [
-            ...state.products.map((product) => {
+            ...state.products.map(product => {
               if (product.id === action.payload.id) {
                 return { ...product, count: product.count + 1 };
               } else {
@@ -35,7 +35,7 @@ const cartReducer = (state: ICart, action: IAction): ICart => {
         ...state,
         loading: false,
         productsToAdd: [
-          ...state.productsToAdd.filter((prod) => prod !== action.payload.id),
+          ...state.productsToAdd.filter(prod => prod !== action.payload.id),
         ],
       };
 
@@ -48,7 +48,7 @@ const cartReducer = (state: ICart, action: IAction): ICart => {
         ...state,
         products: [
           // eslint-disable-next-line array-callback-return
-          ...state.products.map((prod) => {
+          ...state.products.map(prod => {
             if (prod.id === action.payload.id) {
               return {
                 ...action.payload,
@@ -73,7 +73,7 @@ const cartReducer = (state: ICart, action: IAction): ICart => {
       state = {
         ...state,
         products: [
-          ...state.products.filter((product) => product.id !== action.payload),
+          ...state.products.filter(product => product.id !== action.payload),
         ],
       };
 
@@ -85,7 +85,7 @@ const cartReducer = (state: ICart, action: IAction): ICart => {
       state = {
         ...state,
         products: [
-          ...state.products.map((product) => {
+          ...state.products.map(product => {
             if (product.id === action.payload) {
               if (product.count > 1) {
                 return { ...product, count: product.count - 1 };
