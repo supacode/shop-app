@@ -1,12 +1,13 @@
 const { Router } = require('express');
 
 const { getUser, getMe } = require('../controllers/userController');
+const { protectRoutes } = require('../controllers/authController');
 
 const router = Router();
 
 router.route('/:id').get(getUser);
 
-// TODO:  Protect routes
+router.use(protectRoutes);
 router.route('/').get(getMe);
 
 const userRoutes = router;

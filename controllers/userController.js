@@ -22,9 +22,11 @@ const getAllUsers = async (req, res, next) => {
 };
 
 const getMe = async (req, res, next) => {
+  const user = await User.findById(req.user);
+
   res.status(200).json({
     status: 'success',
-    message: 'working on route',
+    user,
   });
 };
 

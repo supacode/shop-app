@@ -37,7 +37,49 @@ const login = async (req, res, next) => {
   sendToken({ res, user, statusCode: 200 });
 };
 
+const protectRoutes = async (req, res, next) => {
+  let token;
+
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith('Bearer')
+  ) {
+    token = req.headers.authorization.split(' ')[1];
+  }
+
+  const createError = () => {
+    res.status(401).json({
+      status: 'error',
+    });
+  };
+
+  // TODO: Proper authentication error
+  if (!token) {
+    return createError();
+  }
+
+  const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+
+  if (!decoded) {
+    // TODO: Proper error messages
+    return createError();
+  }
+
+  const user = await User.findOne({ _id: decoded.id });
+
+  if (!user) {
+    return createError();
+  }
+
+  // TODO: Check if user recently changed password
+
+  req.user = user;
+
+  next();
+};
+
 module.exports = {
   login,
+  protectRoutes,
   createAccount,
 };
