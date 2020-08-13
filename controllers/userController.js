@@ -1,14 +1,27 @@
+const jwt = require('jsonwebtoken');
+
 const User = require('../models/User');
+
+const sendToken = (options = { res: null, user: null, statusCode: null }) => {
+  const { res, user, statusCode } = options;
+
+  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, {
+    expiresIn: `${process.env.JWT_EXPIRY_DAYS} days`,
+  });
+
+  res.status(statusCode).json({
+    status: 'success',
+    token,
+    user,
+  });
+};
 
 const createAccount = async (req, res, next) => {
   const { email, password, passwordConfirm } = req.body;
 
   const user = await User.create({ email, password, passwordConfirm });
 
-  res.status(201).json({
-    status: 'success',
-    user,
-  });
+  sendToken({ res, user, statusCode: 201 });
 };
 
 const getUser = async (req, res, next) => {
@@ -41,10 +54,8 @@ const login = async (req, res, next) => {
     // TODOO: Send proper validation messages
     return res.status(401).json({});
   }
-  res.status(200).json({
-    status: 'success',
-    user,
-  });
+
+  sendToken({ res, user, statusCode: 200 });
 };
 
 module.exports = {

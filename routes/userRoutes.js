@@ -11,10 +11,10 @@ const router = Router();
 
 router
   .route('/')
-  .post(createAccount)
+  .post(login)
   .get(getAllUsers);
 
-router.post('/login', login);
+router.post('/register', createAccount);
 
 router.route('/:id').get(getUser);
 
