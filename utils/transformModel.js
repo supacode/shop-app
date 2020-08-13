@@ -3,9 +3,10 @@ const transformModel = (options = { schema: null, exclude: [] }) => {
 
   const schemaObj = schema.toObject();
 
-  exclude.push('__v');
-
-  exclude.forEach(prop => delete schemaObj[prop]);
+  if (exclude) {
+    exclude.push('__v');
+    exclude.forEach(prop => delete schemaObj[prop]);
+  }
 
   if (schemaObj._id) {
     schemaObj.id = schema._id;

@@ -16,6 +16,7 @@ const databaseConnection = require('./utils/databaseConnection');
 // Routes
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 (async () => await databaseConnection())();
 
@@ -29,6 +30,7 @@ app.use(helmet());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1/products', productRoutes);
+app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/user', userRoutes);
 
 module.exports = app;
