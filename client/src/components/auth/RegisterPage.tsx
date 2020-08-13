@@ -49,8 +49,9 @@ const RegisterPage = () => {
               />
             </div>
 
+            {/* TODO: Replace with auth page CTA component */}
             <div className="auth-form__field">
-              <button type="submit" className="auth-form__submit">
+              <button type="submit" className="auth-form__cta">
                 <span>Create an Account</span>
               </button>
             </div>

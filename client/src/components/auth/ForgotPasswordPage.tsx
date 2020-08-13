@@ -22,6 +22,7 @@ const ForgotPassword = () => {
               />
             </div>
 
+            {/* TODO: Replace with auth page CTA component */}
             <div className="auth-form__field">
               <input
                 type="submit"

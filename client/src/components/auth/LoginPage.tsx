@@ -2,9 +2,10 @@ import React, { useRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import AuthContext from '../../context/auth/authContext';
+import AuthPageCTA from './AuthPageCTA';
 
 const LoginForm = () => {
-  const { login } = useContext(AuthContext);
+  const { login, loginLoadiing } = useContext(AuthContext);
 
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -13,7 +14,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     const email = emailRef.current!.value;
-    const password = emailRef.current!.value;
+    const password = passwordRef.current!.value;
 
     login({ email, password });
   };
@@ -54,15 +55,11 @@ const LoginForm = () => {
               />
             </div>
 
-            <div className="auth-form__field">
-              <button
-                onClick={loginHandler}
-                type="submit"
-                className="auth-form__submit"
-              >
-                <span>Login</span>
-              </button>
-            </div>
+            <AuthPageCTA
+              loading={loginLoadiing}
+              handler={loginHandler}
+              text="Login"
+            />
           </form>
 
           <div className="auth-form__footer">

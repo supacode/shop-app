@@ -1,9 +1,10 @@
 // User
-export const userTypes = {
+export const authTypes = {
+  START_LOGIN: 'START_LOGIN',
   LOAD_USER: 'LOAD_USER',
   LOGIN: 'LOGIN',
   LOGOUT: 'LOGOUT',
-  ERROR: 'ERROR',
+  LOGIN_ERROR: 'LOGIN_ERROR',
 };
 
 // Products

@@ -38,11 +38,13 @@
     line-height: 2;
   }
 
-  &__submit {
+  &__cta {
     color: $light;
     border-radius: 5px;
     padding: 1rem 2rem;
-    font-size: 100% !important;
+    position: relative;
+    min-height: 50px;
+
     @include primary-btn;
   }
 
