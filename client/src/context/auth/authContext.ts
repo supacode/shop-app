@@ -1,11 +1,19 @@
 import { createContext } from 'react';
 
-import { IState } from '../../interfaces/auth-interfaces';
+import { IState, IUser } from '../../interfaces/auth-interfaces';
+
+let loadedUser = localStorage.getItem('user');
+let loadedToken = localStorage.getItem('token');
+
+let user: IUser;
+if (loadedUser) user = JSON.parse(loadedUser);
+
+if (loadedToken) loadedToken = JSON.parse(loadedToken);
 
 export const initialState: IState = {
   loggedin: false,
-  user: null,
-  token: null,
+  user: { ...user } || null,
+  token: loadedToken || null,
   loading: true,
   loginLoadiing: false,
   loginError: null,

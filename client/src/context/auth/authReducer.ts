@@ -8,9 +8,6 @@ const authReducer = (state: IState, action: IAction) => {
       return state;
 
     case authTypes.LOAD_USER:
-      localStorage.user = JSON.stringify(action.payload.user.id);
-      localStorage.token = JSON.stringify(action.payload.token);
-
       state = {
         ...state,
         user: action.payload.user,
@@ -19,7 +16,9 @@ const authReducer = (state: IState, action: IAction) => {
         loggedin: true,
       };
 
-      console.log(state.user);
+      localStorage.user = JSON.stringify(state.user);
+      localStorage.token = JSON.stringify(state.token);
+
       return state;
     case authTypes.LOGIN_ERROR:
       state = {
