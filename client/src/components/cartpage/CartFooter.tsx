@@ -41,7 +41,7 @@ const CartFooter: React.FC<{ subTotal: number }> = ({ subTotal }) => {
         </Link>
       </p>
 
-      {subTotal && (
+      {subTotal > 0 && (
         <Fragment>
           <p>
             <button className="cart__footer--checkout-btn">

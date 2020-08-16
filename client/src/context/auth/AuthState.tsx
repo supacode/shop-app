@@ -17,7 +17,13 @@ const AuthState: React.FC = ({ children }) => {
       const res = await axios.post('/auth/login', user);
       dispatch({
         type: authTypes.LOAD_USER,
-        payload: { user: res.data.user, token: res.data.token },
+        payload: {
+          token: res.data.token,
+          user: {
+            id: res.data.user.id,
+            name: res.data.user.name,
+          },
+        },
       });
     } catch (err) {
       dispatch({

@@ -13,12 +13,13 @@ const authReducer = (state: IState, action: IAction) => {
 
       state = {
         ...state,
-        user: action.payload.user.id,
+        user: action.payload.user,
         token: action.payload.token,
         loginLoadiing: false,
         loggedin: true,
       };
 
+      console.log(state.user);
       return state;
     case authTypes.LOGIN_ERROR:
       state = {
