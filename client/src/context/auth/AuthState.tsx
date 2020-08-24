@@ -13,7 +13,6 @@ const AuthState: React.FC = ({ children }) => {
     dispatch({ type: authTypes.START_LOGIN });
 
     try {
-      // eslint-disable-next-line
       const res = await axios.post('/auth/login', user);
       dispatch({
         type: authTypes.LOAD_USER,

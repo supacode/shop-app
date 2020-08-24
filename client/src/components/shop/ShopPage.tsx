@@ -26,7 +26,7 @@ const ShopPage: React.FC = () => {
           <div className="row">
             {loadingShop && <Spinner text="Getting Products" />}
 
-            {productsShop.map((product) => (
+            {productsShop.map(product => (
               <ProductItem key={product.id} product={product} />
             ))}
           </div>

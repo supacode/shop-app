@@ -20,6 +20,7 @@ export const initialState: ICart = {
   decreaseQuantity: () => {},
   isProductInCart: () => true,
   isAddingToCart: () => false,
+  checkout: () => false,
 };
 
 const CartContext = createContext(initialState);

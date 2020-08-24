@@ -53,6 +53,12 @@ const CartState: React.FC = ({ children }) => {
     return total;
   };
 
+  const checkout = (products: ICartProduct[]) => {
+    // TODO: Create checkout to server
+
+    console.log(products);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -65,6 +71,7 @@ const CartState: React.FC = ({ children }) => {
         addCartProduct,
         removeCartProduct,
         decreaseQuantity,
+        checkout,
       }}
     >
       {children}

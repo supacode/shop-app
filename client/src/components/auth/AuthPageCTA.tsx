@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import Spinner from '../layout/Spinner';
 
 const AuthPageCTA: React.FC<{
   loading: boolean;
   text: string;
-  handler: (e: React.FormEvent) => any;
+  handler: (e: FormEvent) => any;
 }> = ({ loading, text, handler }) => {
   return (
     <div className="auth-form__field">

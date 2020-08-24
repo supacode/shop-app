@@ -1,7 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 
-const CartFooter: React.FC<{ subTotal: number }> = ({ subTotal }) => {
+const CartFooter: React.FC<{
+  subTotal: number;
+  checkoutHandler: (e: FormEvent) => void;
+}> = ({ subTotal, checkoutHandler }) => {
   return (
     <div className="cart__footer">
       <p className="cart__footer--to-home">
@@ -44,7 +47,10 @@ const CartFooter: React.FC<{ subTotal: number }> = ({ subTotal }) => {
       {subTotal > 0 && (
         <Fragment>
           <p>
-            <button className="cart__footer--checkout-btn">
+            <button
+              onClick={checkoutHandler}
+              className="cart__footer--checkout-btn"
+            >
               <svg width="32" height="32" viewBox="0 0 512 512">
                 <polyline
                   points="336 176 225.2 304 176 255.8"

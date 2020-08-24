@@ -41,7 +41,6 @@ const cartReducer = (state: ICart, action: IAction): ICart => {
       state = {
         ...state,
         products: [
-          // eslint-disable-next-line array-callback-return
           ...state.products.map(prod => {
             if (prod.id === action.payload.id) {
               return {
@@ -50,6 +49,7 @@ const cartReducer = (state: ICart, action: IAction): ICart => {
                 price: action.payload.price,
               };
             }
+            return false;
           }),
         ],
       };

@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 
 import AuthContext from '../../context/auth/authContext';
@@ -10,7 +10,7 @@ const LoginForm = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
-  const loginHandler = (e: React.FormEvent) => {
+  const loginHandler = (e: FormEvent) => {
     e.preventDefault();
 
     const email = emailRef.current!.value;

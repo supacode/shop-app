@@ -41,7 +41,7 @@ const ProductPage: React.FC = () => {
               </div>
 
               <div className="product-detail__preview--thumbnails">
-                {product.images?.map((image) => (
+                {product.images?.map(image => (
                   <button
                     key={image}
                     onClick={() => changeDisplayPicture(image)}

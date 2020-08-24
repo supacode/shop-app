@@ -19,4 +19,5 @@ export interface ICart {
   addCartProduct: (product: ICartProduct) => void;
   removeCartProduct: (productId: string | number) => void;
   decreaseQuantity: (productId: string | number) => void;
+  checkout: (products: ICartProduct[]) => void;
 }

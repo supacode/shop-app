@@ -24,13 +24,12 @@
 }
 
 .product {
-  width: 23%;
+  width: 30%;
   text-align: center;
   margin: 1rem 0;
   transition: 0.4s ease-out border;
   border-radius: 10px;
   overflow: hidden;
-  margin: 1rem;
 
   &:hover,
   &:focus {
