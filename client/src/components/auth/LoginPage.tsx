@@ -5,7 +5,7 @@ import AuthContext from '../../context/auth/authContext';
 import AuthPageCTA from './AuthPageCTA';
 
 const LoginForm = () => {
-  const { login, loginLoadiing } = useContext(AuthContext);
+  const { login, loginLoading } = useContext(AuthContext);
 
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -56,7 +56,7 @@ const LoginForm = () => {
             </div>
 
             <AuthPageCTA
-              loading={loginLoadiing}
+              loading={loginLoading}
               handler={loginHandler}
               text="Login"
             />

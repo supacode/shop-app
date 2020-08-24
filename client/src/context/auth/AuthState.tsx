@@ -37,10 +37,9 @@ const AuthState: React.FC = ({ children }) => {
     <AuthContext.Provider
       value={{
         loggedin: state.loggedin,
-        loading: state.loading,
         user: state.user,
         token: state.token,
-        loginLoadiing: state.loginLoadiing,
+        loginLoading: state.loginLoading,
         loginError: state.loginError,
         login,
       }}

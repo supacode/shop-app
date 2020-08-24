@@ -4,7 +4,7 @@ import { authTypes } from '../types';
 const authReducer = (state: IState, action: IAction) => {
   switch (action.type) {
     case authTypes.START_LOGIN:
-      state = { ...state, loginLoadiing: true };
+      state = { ...state, loginLoading: true };
       return state;
 
     case authTypes.LOAD_USER:
@@ -12,7 +12,7 @@ const authReducer = (state: IState, action: IAction) => {
         ...state,
         user: action.payload.user,
         token: action.payload.token,
-        loginLoadiing: false,
+        loginLoading: false,
         loggedin: true,
       };
 
@@ -23,7 +23,7 @@ const authReducer = (state: IState, action: IAction) => {
     case authTypes.LOGIN_ERROR:
       state = {
         ...state,
-        loginLoadiing: false,
+        loginLoading: false,
         loginError: {
           message: action.payload,
         },

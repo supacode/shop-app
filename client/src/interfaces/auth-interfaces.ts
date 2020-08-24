@@ -12,8 +12,7 @@ export interface IState {
   user: IUser | null;
   token: string | null;
   loggedin: boolean;
-  loading: boolean;
-  loginLoadiing: boolean;
+  loginLoading: boolean;
   loginError: { message: string } | null;
   login: (user: { email: string; password: string }) => void;
 }
