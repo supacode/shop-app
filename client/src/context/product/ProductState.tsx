@@ -6,7 +6,6 @@ import ProductContext, { initialState } from './productContext';
 import { productTypes } from '../types';
 
 const ProductState: React.FC = ({ children }) => {
-  // eslint-disable-next-line
   const [state, dispatch] = useReducer(productReducer, initialState);
 
   const getProduct = async (slug: string) => {

@@ -53,10 +53,23 @@ const CartState: React.FC = ({ children }) => {
     return total;
   };
 
-  const checkout = (products: ICartProduct[]) => {
+  const checkout = async (products: ICartProduct[]) => {
     // TODO: Create checkout to server
 
-    console.log(products);
+    const orders = products.map(prod => ({
+      id: prod.id,
+      count: prod.count,
+      slug: prod.slug,
+    }));
+
+    try {
+      const res = await axios.post('/orders/', { orders });
+
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+      // TODO: Proper handling
+    }
   };
 
   return (

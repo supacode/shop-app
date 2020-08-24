@@ -33,6 +33,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/v1/products', productRoutes);
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/user', userRoutes);
-app.use('/api/v1/order', orderRoutes);
+app.use('/api/v1/orders', orderRoutes);
 
 module.exports = app;
