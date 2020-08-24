@@ -12,7 +12,7 @@ if (loadedUser) user = JSON.parse(loadedUser);
 if (loadedToken) loadedToken = JSON.parse(loadedToken);
 
 export const initialState: IState = {
-  loggedin: false,
+  loggedIn: false,
   user: { ...user } || null,
   token: loadedToken || null,
   loginLoading: false,

@@ -13,7 +13,7 @@ const authReducer = (state: IState, action: IAction) => {
         user: action.payload.user,
         token: action.payload.token,
         loginLoading: false,
-        loggedin: true,
+        loggedIn: true,
       };
 
       localStorage.user = JSON.stringify(state.user);

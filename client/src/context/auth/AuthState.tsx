@@ -36,7 +36,7 @@ const AuthState: React.FC = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        loggedin: state.loggedin,
+        loggedIn: state.loggedIn,
         user: state.user,
         token: state.token,
         loginLoading: state.loginLoading,

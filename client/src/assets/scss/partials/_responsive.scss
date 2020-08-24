@@ -87,10 +87,8 @@
       padding-right: 0;
       width: 100%;
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       &--image {
-        display: none;
-
         img {
           max-height: 150px;
           margin: auto;

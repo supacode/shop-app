@@ -11,7 +11,7 @@ export interface IAction {
 export interface IState {
   user: IUser | null;
   token: string | null;
-  loggedin: boolean;
+  loggedIn: boolean;
   loginLoading: boolean;
   loginError: { message: string } | null;
   login: (user: { email: string; password: string }) => void;
