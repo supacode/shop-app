@@ -50,7 +50,7 @@ const CartState: React.FC = ({ children }) => {
       (acc, { price, count }) => acc + price * count,
       0,
     );
-    return total;
+    return +total.toFixed(2);
   };
 
   const checkout = async (products: ICartProduct[]) => {

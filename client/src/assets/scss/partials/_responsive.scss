@@ -110,6 +110,9 @@
 
   .cart {
     &-item {
+      &__product {
+        flex: 1;
+      }
       &__quantity {
         display: flex;
         flex-direction: column-reverse;

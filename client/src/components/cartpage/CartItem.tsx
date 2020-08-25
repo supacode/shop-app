@@ -53,7 +53,9 @@ const CartItem: React.FC<{
         <p className="cart-item__price">${product.price}</p>
         <p>
           {product.count > 1 &&
-            `x${product.count} = $${product.price * product.count}`}
+            `x${product.count} = $${+(product.price * product.count).toFixed(
+              2,
+            )}`}
         </p>
       </div>
       <button

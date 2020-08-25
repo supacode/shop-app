@@ -26,6 +26,7 @@
   }
 
   &__quantity {
+    position: relative;
     &--add,
     &--reduce {
       font-size: 120%;
