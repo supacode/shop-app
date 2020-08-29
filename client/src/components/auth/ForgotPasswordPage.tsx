@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import AuthPageCTA from './AuthPageCTA';
+
 const ForgotPassword = () => {
   return (
     <div className="auth">
@@ -22,14 +24,12 @@ const ForgotPassword = () => {
               />
             </div>
 
-            {/* TODO: Replace with auth page CTA component */}
-            <div className="auth-form__field">
-              <input
-                type="submit"
-                className="auth-form__submit"
-                value="Recover Password"
-              />
-            </div>
+            {/* TODO: Wire up forgot password handler */}
+            <AuthPageCTA
+              handler={() => {}}
+              text="Forgot Password"
+              loading={false}
+            />
           </form>
 
           <div className="auth-form__footer">
